@@ -1,4 +1,4 @@
-from qlearning.q_agent import QLearningAgent
+from q_agent import QLearningAgent
 import numpy as np
 
 
