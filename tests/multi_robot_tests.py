@@ -1,4 +1,4 @@
-from test_env import *
+from tests.util.test_env import *
 
 
 def test_one_robot():

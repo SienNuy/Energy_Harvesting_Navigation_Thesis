@@ -1,6 +1,4 @@
 from stable_baselines3 import PPO
-from stable_baselines3.common.vec_env import DummyVecEnv
-from gym_environment import *
 
 
 def train_gym_env(env, total_timesteps, file_name):

@@ -74,13 +74,6 @@ class Robot:
 
         return False
 
-    def too_close_to_other_robots(self):
-        for other_position in self.observe_other_robots_positions():
-            diff = abs(self.position[0] - other_position[0]) + abs(self.position[1] - other_position[1])
-            if diff <= 1:
-                return True
-        return False
-
     def observe_other_robots_positions(self):
         return [r.position for r in self.env.robots if r.id != self.id]
 

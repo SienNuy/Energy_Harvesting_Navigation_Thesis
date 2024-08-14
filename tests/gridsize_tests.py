@@ -1,12 +1,14 @@
-from test_env import *
+from tests.util.test_env import *
 
 
 # Grid size = 20
 def test_grid_size_20_standard_1():
+    # Get parameters
     gridsize, goals, obstacles, lightsources, use_EH = generate_standard_model_1()
     gridsize = 20
     use_EH = False
 
+    # Test both environments
     test_my_env(gridsize, goals, obstacles, lightsources, use_EH)
     test_gym_env(gridsize, goals, obstacles, lightsources, use_EH, 50000)
 

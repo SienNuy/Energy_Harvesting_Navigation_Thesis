@@ -1,7 +1,30 @@
-from tests.models import *
-from train import *
-from navigate_env import *
+from train_env import *
+from tests.util.navigate_env import *
 from stable_baselines3.common.vec_env import DummyVecEnv
+from environment.my_environment.my_robot import Robot
+from environment.my_environment.my_environment import Environment
+from environment.gym_environment import MultiRobotEnv
+
+
+def build_my_environment(gridsize, goals, obstacles, lightsources, use_EH):
+    # Build Robots
+    robots = []
+    for i, goal in enumerate(goals):
+        robot = Robot(_id=i, goal=goal)
+        robots.append(robot)
+
+    # Build Environment
+    env = Environment(width=gridsize, height=gridsize, obstacles=obstacles, lightsources=lightsources, use_EH=use_EH)
+    env.add_robots(robots)
+
+    return env
+
+
+def build_gym_environment(gridsize, goals, obstacles, lightsources, use_EH):
+    env = MultiRobotEnv(grid_size=gridsize, num_robots=len(goals), goals=goals, obstacles=obstacles,
+                        lightsources=lightsources, use_EH=use_EH, render_mode='human')
+
+    return env
 
 
 def test_my_env(gridsize, goals, obstacles, lightsources, use_EH):
@@ -28,7 +51,7 @@ def test_gym_env(gridsize, goals, obstacles, lightsources, use_EH, timesteps):
     # Wrap environment in DummyVecEnv to handle multiple envs
     gym_env = DummyVecEnv([lambda: gym_env])
 
-    file_name = 'models/' + ((str(gridsize)) + 'x' + str(gridsize) + '_' + str(len(goals)) + '_robots_' +
+    file_name = 'tests/models/' + ((str(gridsize)) + 'x' + str(gridsize) + '_' + str(len(goals)) + '_robots_' +
                  str(len(obstacles)) + '_obs_' + str(len(lightsources)) + '_lights')
     if use_EH:
         file_name += '_EH'
