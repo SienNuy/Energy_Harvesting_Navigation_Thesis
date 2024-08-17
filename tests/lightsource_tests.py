@@ -1,5 +1,5 @@
 from tests.util.test_env import *
-
+from tests.util.models import *
 
 def test_1_lightsource_standard_1():
     gridsize, goals, obstacles, lightsources = generate_standard_model_1()

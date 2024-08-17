@@ -1,13 +1,22 @@
 from stable_baselines3 import PPO
+import os
 
 
 def train_gym_env(env, total_timesteps, file_name):
-    # Train the model
-    model = PPO('MultiInputPolicy', env, verbose=0)
-    model.learn(total_timesteps=total_timesteps)
+    file_name += '_timesteps=' + str(total_timesteps)
 
-    # Save the model
-    model.save(file_name)
+    if os.path.exists(file_name):
+        print("Model file found. Loading the model...")
+        # Load the model
+        model = PPO.load(file_name, env=env)
+    else:
+        print("Model file not found. Training a new model...")
+        # Train the model
+        model = PPO('MultiInputPolicy', env, verbose=0)
+        model.learn(total_timesteps=total_timesteps)
+
+        # Save the model
+        model.save(file_name)
 
     return model
 

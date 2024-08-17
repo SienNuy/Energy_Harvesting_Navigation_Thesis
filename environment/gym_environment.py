@@ -7,7 +7,8 @@ import pygame
 class MultiRobotEnv(gym.Env):
     metadata = {"render_modes": ["human"]}
 
-    def __init__(self, grid_size=None, num_robots=None, goals=None, obstacles=None, use_EH=True, lightsources=None, render_mode=None):
+    def __init__(self, grid_size=None, num_robots=None, goals=None, obstacles=None, use_EH=True, lightsources=None,
+                 reward_param=None, render_mode=None):
         super(MultiRobotEnv, self).__init__()
 
         self.grid_size = grid_size
@@ -16,6 +17,7 @@ class MultiRobotEnv(gym.Env):
         self.obstacles = obstacles
         self.use_EH = use_EH
         self.lightsources = lightsources
+        self.reward_param = reward_param
 
         # Define the action and observation space
         self.action_space = spaces.MultiDiscrete([4] * self.num_robots)
@@ -145,9 +147,9 @@ class MultiRobotEnv(gym.Env):
         for distance in distances:
             if distance is not None:
                 if distance == 0:
-                    total_EH += 5
+                    total_EH += self.reward_param['reward_EH']
                 else:
-                    total_EH += 1/distance
+                    total_EH += 1/(distance ** self.reward_param['reward_EH_power'])
         return total_EH
 
     def get_reward(self, robot_id, is_valid_move, causes_collision, total_EH):
@@ -159,13 +161,17 @@ class MultiRobotEnv(gym.Env):
 
     def get_move_reward(self, robot_id, is_valid_move, causes_collision):
         if self.is_robot_done(robot_id):
-            reward = 1000
+            #reward = 1000
+            reward = self.reward_param['reward_done']
         elif not is_valid_move:
-            reward = -2
+            #reward = -2
+            reward = self.reward_param['penalty_invalid_move']
         elif causes_collision:
-            reward = -5
+            #reward = -5
+            reward = self.reward_param['penalty_collision']
         else:
-            reward = -0.2
+            #reward = -0.2
+            reward = self.reward_param['penalty_move']
         return reward
 
     def is_robot_done(self, robot_id):
