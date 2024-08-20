@@ -3,13 +3,13 @@ from tests.util.models import *
 
 
 def run_all_gridsize_tests():
-    results_5 = {'standard1': test_gridsize_5_standard_1(),
-                 'standard2': test_gridsize_5_standard_2()}
+    results_5 = {'Standard Model 1': test_gridsize_5_standard_1(),
+                 'Standard Model 2': test_gridsize_5_standard_2()}
 
-    results_20 = {'standard1': test_gridsize_20_standard_1(),
-                  'standard2': test_gridsize_20_standard_2()}
+    results_20 = {'Standard Model 1': test_gridsize_20_standard_1(),
+                  'Standard Model 2': test_gridsize_20_standard_2()}
 
-    return {'gridsize5': results_5, 'gridsize20': results_20}
+    return {'5x5': results_5, '20x20': results_20}
 
 
 # Grid size = 5

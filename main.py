@@ -1,6 +1,5 @@
-from tests.gridsize_tests import *
-from tests.multi_robot_tests import *
+from param_test.param_results import *
+from tests.multi_robot_tests import run_all_multi_robot_tests
 
-# Run tests
 
-results_multi_robot = test_one_robot()
+multi_robot_tests_results = run_all_multi_robot_tests()

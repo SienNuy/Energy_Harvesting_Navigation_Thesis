@@ -93,7 +93,7 @@ class Robot:
         distances = []
         for lightsource in self.observe_lightsources():
             d = abs(self.position[0] - lightsource[0]) + abs(self.position[1] - lightsource[1])
-            if d <= 3:
+            if d <= self.env.range_EH:
                 distances.append(d)
             else:
                 distances.append(None)
@@ -105,9 +105,9 @@ class Robot:
         for distance in distances:
             if distance is not None:
                 if distance == 0:
-                    total_EH += 5
+                    total_EH += self.env.reward_param['reward_EH']
                 else:
-                    total_EH += 1/distance
+                    total_EH += 1/(distance ** self.env.reward_param['reward_EH_power'])
 
         self.harvested_energy += total_EH
         return total_EH

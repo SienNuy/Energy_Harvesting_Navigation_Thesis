@@ -6,7 +6,7 @@ from environment.my_environment.my_environment import Environment
 from environment.gym_environment import MultiRobotEnv
 
 
-def build_my_environment(gridsize, goals, obstacles, lightsources, use_EH):
+def build_my_environment(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH):
     # Build Robots
     robots = []
     for i, goal in enumerate(goals):
@@ -14,32 +14,36 @@ def build_my_environment(gridsize, goals, obstacles, lightsources, use_EH):
         robots.append(robot)
 
     # Build Environment
-    env = Environment(width=gridsize, height=gridsize, obstacles=obstacles, lightsources=lightsources, use_EH=use_EH)
+    env = Environment(width=gridsize, height=gridsize, obstacles=obstacles, lightsources=lightsources, use_EH=use_EH,
+                      reward_param=reward_param, reward_weight=reward_weight, range_EH=range_EH)
     env.add_robots(robots)
 
     return env
 
 
-def build_gym_environment(gridsize, goals, obstacles, lightsources, use_EH, reward_param):
+def build_gym_environment(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH):
     env = MultiRobotEnv(grid_size=gridsize, num_robots=len(goals), goals=goals, obstacles=obstacles,
-                        lightsources=lightsources, use_EH=use_EH, reward_param=reward_param, render_mode='human')
+                        lightsources=lightsources, use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
+                        range_EH=range_EH, render_mode='human')
 
     return env
 
 
-def test_my_env(gridsize, goals, obstacles, lightsources, use_EH):
+def test_my_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH, episodes, max_timesteps, num_start_positions=10):
     # My Environment
     print('\nBuild My Env')
     # Build my environment
-    my_env = build_my_environment(gridsize, goals, obstacles, lightsources, use_EH)
+    my_env = build_my_environment(gridsize=gridsize, goals=goals, obstacles=obstacles, lightsources=lightsources,
+                                  use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
+                                  range_EH=range_EH)
 
     # Train Qlearning
     print('Start Training My Env')
-    my_env = train_my_env(my_env)
+    my_env = train_my_env(env=my_env, episodes=episodes, max_timesteps=max_timesteps)
     print('Done Training My Env')
 
     # Navigate through the environment and get results
-    number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_my_env(my_env)
+    number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_my_env(my_env=my_env, num_start_positions=num_start_positions)
 
     return {'number_failures': number_failures,
             'number_successes': number_successes,
@@ -48,26 +52,27 @@ def test_my_env(gridsize, goals, obstacles, lightsources, use_EH):
             'avg_EH': avg_EH}
 
 
-def test_gym_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, timesteps, sample_start_positions, file_name):
+def test_gym_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH, timesteps, file_name, num_start_positions=10):
     # Gym Environment
     print('Build Gym Env')
     # Build gym environment
-    gym_env = build_gym_environment(gridsize, goals, obstacles, lightsources, use_EH, reward_param)
+    gym_env = build_gym_environment(gridsize=gridsize, goals=goals, obstacles=obstacles, lightsources=lightsources,
+                                    use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
+                                    range_EH=range_EH)
 
     # Wrap environment in DummyVecEnv to handle multiple envs
     gym_env = DummyVecEnv([lambda: gym_env])
 
-    file_name = 'tests/models/' + file_name
     if use_EH:
         file_name += '_EH'
 
     # Train PPO
     print('Start Training Gym Env')
-    model = train_gym_env(gym_env, timesteps, file_name)
+    model = train_gym_env(env=gym_env, total_timesteps=timesteps, file_name=file_name)
     print('Done Training Gym Env')
 
     # Navigate through the environment and get results
-    number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_gym_env(gym_env, model, sample_start_positions)
+    number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_gym_env(gym_env=gym_env, model=model, num_robots=len(goals), num_start_positions=num_start_positions)
 
     return {'number_failures': number_failures,
             'number_successes': number_successes,

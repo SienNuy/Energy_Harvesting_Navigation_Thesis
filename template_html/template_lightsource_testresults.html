@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 20px; /* Space between columns */
+            margin-bottom: 40px; /* Space between grid and next section */
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .table-container {
+            width: 800px; /* Full width of the grid item */
+            overflow-x: auto; /* Handle overflow */
+            margin: 0 auto; /* Center table content */
+        }
+        table {
+            width: 100%; /* Table takes full width of the container */
+            border-collapse: collapse;
+            margin-top: 10px; /* Space between subtitle and table */
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center">Lightsources Tests</h1>
+
+    {% for lightsources, models in data.items() %}
+    <div class="grid-container">
+        {% for model_name, results in models.items() %}
+        <div class="grid-item">
+            <h2>{{ lightsources }} - {{ model_name }}</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th>Number of Failures</th>
+                            <th>Number of Successes</th>
+                            <th>Average Path Length</th>
+                            <th>Average Reward</th>
+                            <th>Average EH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% set envs = ["results_my_no_EH", "results_my_EH", "results_gym_no_EH", "results_gym_EH"] %}
+                        {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_reward", "avg_EH"] %}
+
+                        {% for for env in envs %}
+                        <tr>
+                            {% if env == "results_my_no_EH" %}
+                            <td rowspan="2"> My Env </td>
+                            <td>No EH</td>
+                            {% elif env == "results_my_EH"%}
+                            <td>EH</td>
+                            {% elif env == "results_gym_no_EH" %}
+                            <td rowspan="2"> Gym Env </td>
+                            <td>No EH</td>
+                            {% elif env == "results_gym_EH"%}
+                            <td>EH</td>
+                            {% endif %}
+
+                            {% for metric in metrics %}
+                            <td>{{ results[env][metric] }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+
+</body>
+</html>

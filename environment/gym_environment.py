@@ -8,7 +8,7 @@ class MultiRobotEnv(gym.Env):
     metadata = {"render_modes": ["human"]}
 
     def __init__(self, grid_size=None, num_robots=None, goals=None, obstacles=None, use_EH=True, lightsources=None,
-                 reward_param=None, render_mode=None):
+                 reward_param=None, reward_weight=None, range_EH=None, render_mode=None):
         super(MultiRobotEnv, self).__init__()
 
         self.grid_size = grid_size
@@ -18,6 +18,8 @@ class MultiRobotEnv(gym.Env):
         self.use_EH = use_EH
         self.lightsources = lightsources
         self.reward_param = reward_param
+        self.reward_weight = reward_weight
+        self.range_EH = range_EH
 
         # Define the action and observation space
         self.action_space = spaces.MultiDiscrete([4] * self.num_robots)
@@ -135,7 +137,7 @@ class MultiRobotEnv(gym.Env):
         distances = []
         for lightsource in self.lightsources:
             d = abs(position[0] - lightsource[0]) + abs(position[1] - lightsource[1])
-            if d <= 3:
+            if d <= self.range_EH:
                 distances.append(d)
             else:
                 distances.append(None)
@@ -155,7 +157,7 @@ class MultiRobotEnv(gym.Env):
     def get_reward(self, robot_id, is_valid_move, causes_collision, total_EH):
         move_reward = self.get_move_reward(robot_id, is_valid_move, causes_collision)
         if self.use_EH:
-            weighted_reward = 0.5 * move_reward + 0.5 * total_EH
+            weighted_reward = self.reward_weight * move_reward + (1-self.reward_weight) * total_EH
             return weighted_reward
         return move_reward
 
