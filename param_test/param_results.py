@@ -11,22 +11,22 @@ reward_param_standard_model_1 = {
 
 total_timesteps_standard_model_1 = 50000
 episodes_standard_model_1 = 1000
-max_timesteps_standard_model_1 = 200
+max_timesteps_standard_model_1 = 100
 
 
 # Standard Model 2
 reward_param_standard_model_2 = {
     'reward_done': 500,
-    'penalty_invalid_move': -5,
-    'penalty_collision': -2,
-    'penalty_move': -0.2,
+    'penalty_invalid_move': -2,
+    'penalty_collision': -5,
+    'penalty_move': -0.1,
     'reward_EH': 5,
-    'reward_EH_power': 1,
+    'reward_EH_power': 2,
 }
 
 total_timesteps_standard_model_2 = 100000
-episodes_standard_model_2 = 5000
-max_timesteps_standard_model_2 = 100
+episodes_standard_model_2 = 10000
+max_timesteps_standard_model_2 = 200
 
 #########################################################################################################
 # TESTS

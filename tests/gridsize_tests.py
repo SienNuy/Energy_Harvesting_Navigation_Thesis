@@ -9,20 +9,20 @@ def run_all_gridsize_tests():
     results_5 = {'standard_model_1': test_gridsize_5_standard_1(reward_param=reward_param_standard_model_1,
                                                                 episodes=episodes_standard_model_1,
                                                                 max_timesteps=max_timesteps_standard_model_1,
-                                                                total_timesteps=training_timesteps_standard_model_1),
+                                                                total_timesteps=total_timesteps_standard_model_1),
                  'standard_model_2': test_gridsize_5_standard_2(reward_param=reward_param_standard_model_2,
                                                                 episodes=episodes_standard_model_2,
                                                                 max_timesteps=max_timesteps_standard_model_2,
-                                                                total_timesteps=training_timesteps_standard_model_2)}
+                                                                total_timesteps=total_timesteps_standard_model_2)}
 
     results_20 = {'standard_model_1': test_gridsize_20_standard_1(reward_param=reward_param_standard_model_1,
                                                                   episodes=episodes_standard_model_1,
                                                                   max_timesteps=max_timesteps_standard_model_1,
-                                                                  total_timesteps=training_timesteps_standard_model_1),
+                                                                  total_timesteps=total_timesteps_standard_model_1),
                   'standard_model_2': test_gridsize_20_standard_2(reward_param=reward_param_standard_model_2,
                                                                   episodes=episodes_standard_model_2,
                                                                   max_timesteps=max_timesteps_standard_model_2,
-                                                                  total_timesteps=training_timesteps_standard_model_2)}
+                                                                  total_timesteps=total_timesteps_standard_model_2)}
 
     return {'5x5': results_5, '20x20': results_20}
 

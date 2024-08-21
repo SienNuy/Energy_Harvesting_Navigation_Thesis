@@ -225,6 +225,6 @@ def run_parameter_test_my_env(test_goals, num_start_positions, csv_file_name, re
 
 
 #reward_param2 = reward_param_standard_model_2
-#run_parameter_test_my_env(test_goals2, 10, 'results/my_env_param_test_2robots_10start.csv', reward_param2)
-#run_parameter_test_my_env(test_goals2, 20, 'results/my_env_param_test_2robots_20start.csv', reward_param2)
-#run_parameter_test_my_env(test_goals2, 50, 'results/my_env_param_test_2robots_50start.csv', reward_param2)
+#run_parameter_test_my_env(test_goals2, 10, 'my_env_param_test_2robots_10start.csv', reward_param2)
+#run_parameter_test_my_env(test_goals2, 20, 'my_env_param_test_2robots_20start.csv', reward_param2)
+#run_parameter_test_my_env(test_goals2, 50, 'my_env_param_test_2robots_50start.csv', reward_param2)
