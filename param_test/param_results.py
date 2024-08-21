@@ -9,7 +9,7 @@ reward_param_standard_model_1 = {
     'reward_EH_power': 2,
 }
 
-training_timesteps_standard_model_1 = 50000
+total_timesteps_standard_model_1 = 50000
 episodes_standard_model_1 = 1000
 max_timesteps_standard_model_1 = 200
 
@@ -24,17 +24,12 @@ reward_param_standard_model_2 = {
     'reward_EH_power': 1,
 }
 
-training_timesteps_standard_model_2 = 100000
+total_timesteps_standard_model_2 = 100000
 episodes_standard_model_2 = 5000
 max_timesteps_standard_model_2 = 100
 
 #########################################################################################################
 # TESTS
-# Multi Robot
-training_timesteps_multi_robot_3 = 0
-episodes_multi_robot_3 = 0
-max_timesteps_multi_robot_3 = 0
-
 # Grid size
 training_timesteps_gridsize_5_model_1 = 0
 episodes_gridsize_5_model_1 = 0
