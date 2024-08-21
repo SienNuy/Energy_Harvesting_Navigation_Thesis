@@ -7,8 +7,8 @@ import csv
 # Basic case
 grid_size = 10
 obstacles = [(3, 3), (5, 7), (8, 4)]
-lightsources = [(5, 5)]
-#lightsources = [(2, 5), (5, 5), (8, 5)]
+#lightsources = [(5, 5)]
+lightsources = [(2, 5), (5, 5), (8, 5)]
 reward_weight = 0.5
 range_EH = 3
 
@@ -22,7 +22,7 @@ training_timesteps2 = [50000, 100000]
 
 # reward parameters sets
 test_reward_done1 = [100, 500]
-test_reward_done2 = [500, 1000]
+test_reward_done2 = [1000]
 test_penalty_invalid_move = [-1, -2, -5]
 test_penalty_collision = [-2, -5, -10]
 test_penalty_move = [-0.1, -0.2, -0.5]
@@ -148,8 +148,7 @@ def run_parameter_test_gym_env(test_goals, num_start_positions, csv_file_name):
 #run_parameter_test_gym_env(test_goals1, 10, 'param_test_1robot_10start_d.csv')
 #run_parameter_test_gym_env(test_goals1, 20, 'param_test_1robot_20start_d.csv')
 #run_parameter_test_gym_env(test_goals1, 50, 'param_test_1robot_50start_d.csv')
-
-#run_parameter_test_gym_env(test_goals2, 10, 'param_test_2robot_10start.csv')
+run_parameter_test_gym_env(test_goals2, 10, 'param_test_2robot_10start.csv')
 #run_parameter_test_gym_env(test_goals2, 20, 'param_test_2robot_20start.csv')
 #run_parameter_test_gym_env(test_goals2, 50, 'param_test_2robot_50start.csv')
 

@@ -29,7 +29,7 @@ def build_gym_environment(gridsize, goals, obstacles, lightsources, use_EH, rewa
     return env
 
 
-def test_my_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH, episodes, max_timesteps, num_start_positions=10):
+def test_my_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH, episodes, max_timesteps, num_start_positions=10, return_env=False):
     # My Environment
     print('\nBuild My Env')
     # Build my environment
@@ -45,11 +45,16 @@ def test_my_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, 
     # Navigate through the environment and get results
     number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_my_env(my_env=my_env, num_start_positions=num_start_positions)
 
-    return {'number_failures': number_failures,
+    info = {'number_failures': number_failures,
             'number_successes': number_successes,
             'avg_path_length': avg_path_length,
             'avg_reward': avg_reward,
             'avg_EH': avg_EH}
+
+    if return_env:
+        return my_env, info
+
+    return info
 
 
 def test_gym_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param, reward_weight, range_EH, timesteps, file_name, num_start_positions=10):
@@ -72,7 +77,7 @@ def test_gym_env(gridsize, goals, obstacles, lightsources, use_EH, reward_param,
     print('Done Training Gym Env')
 
     # Navigate through the environment and get results
-    number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_gym_env(gym_env=gym_env, model=model, num_robots=len(goals), num_start_positions=num_start_positions)
+    number_failures, number_successes, avg_path_length, avg_reward, avg_EH = navigate_gym_env(gym_env=gym_env, model=model, num_robots=len(goals), gridsize=gridsize, num_start_positions=num_start_positions)
 
     return {'number_failures': number_failures,
             'number_successes': number_successes,

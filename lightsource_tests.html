@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Results Page</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 20px; /* Space between columns */
+            margin-bottom: 40px; /* Space between grid and next section */
+        }
+
+        .grid-item {
+            text-align: center;
+        }
+
+        .table-container {
+            width: 800px; /* Full width of the grid item */
+            overflow-x: auto; /* Handle overflow */
+            margin: 0 auto; /* Center table content */
+        }
+
+        table {
+            width: 100%; /* Table takes full width of the container */
+            border-collapse: collapse;
+            margin-top: 10px; /* Space between subtitle and table */
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center">Gridsize Tests</h1>
+
+
+<div class="grid-item">
+    <h2>1 lightsource</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average Reward</th>
+                <th>Average EH</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> My Env</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+                <td>99.42</td>
+
+                
+
+                <td>6.522222222222221</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.0</td>
+
+                
+
+                <td>50.74027777777778</td>
+
+                
+
+                <td>12.627777777777775</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> Gym Env </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.4</td>
+
+                
+
+                <td>99.35999999046325</td>
+
+                
+
+                <td>7.288889091461897</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+                <td>50.34916665907949</td>
+
+                
+
+                <td>7.027777887880802</td>
+
+                
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> My Env</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>16.6</td>
+
+                
+
+                <td>997.0799999999999</td>
+
+                
+
+                <td>31.666666666666664</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>16.4</td>
+
+                
+
+                <td>501.3016666666666</td>
+
+                
+
+                <td>42.71666666666667</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> Gym Env </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>17.0</td>
+
+                
+
+                <td>986.0799950614571</td>
+
+                
+
+                <td>69.78333429098129</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>13.3</td>
+
+                
+
+                <td>498.864995540306</td>
+
+                
+
+                <td>50.733334413170816</td>
+
+                
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>7 lightsources (sparse)</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average Reward</th>
+                <th>Average EH</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> My Env</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.8</td>
+
+                
+
+                <td>99.32</td>
+
+                
+
+                <td>20.508333333333333</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.4</td>
+
+                
+
+                <td>51.82305555555555</td>
+
+                
+
+                <td>28.18333333333333</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> Gym Env </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+                <td>99.41999999135733</td>
+
+                
+
+                <td>14.30555593147874</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>6</td>
+
+                
+
+                <td>4</td>
+
+                
+
+                <td>2.8</td>
+
+                
+
+                <td>20.52055555144325</td>
+
+                
+
+                <td>9.197222126275301</td>
+
+                
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> My Env</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>15.8</td>
+
+                
+
+                <td>997.2400000000001</td>
+
+                
+
+                <td>80.71666666666667</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>16.6</td>
+
+                
+
+                <td>510.9483333333334</td>
+
+                
+
+                <td>157.86666666666662</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> Gym Env </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>13.4</td>
+
+                
+
+                <td>990.4399889782071</td>
+
+                
+
+                <td>235.05000219643117</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>16.8</td>
+
+                
+
+                <td>503.84833222702144</td>
+
+                
+
+                <td>309.716659873724</td>
+
+                
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>7 lightsources (clustered)</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average Reward</th>
+                <th>Average EH</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> My Env</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.0</td>
+
+                
+
+                <td>99.4</td>
+
+                
+
+                <td>37.425</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.6</td>
+
+                
+
+                <td>55.370000000000005</td>
+
+                
+
+                <td>63.15</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> Gym Env </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.9</td>
+
+                
+
+                <td>99.21999999135733</td>
+
+                
+
+                <td>35.097222947329286</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>0.0</td>
+
+                
+
+                <td>0.0</td>
+
+                
+
+                <td>0.0</td>
+
+                
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> My Env</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>15.8</td>
+
+                
+
+                <td>997.2400000000001</td>
+
+                
+
+                <td>104.38333333333333</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>17.5</td>
+
+                
+
+                <td>519.0683333333334</td>
+
+                
+
+                <td>318.46666666666664</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> Gym Env </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>14.5</td>
+
+                
+
+                <td>987.8799889430404</td>
+
+                
+
+                <td>422.5833203613758</td>
+
+                
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>16.1</td>
+
+                
+
+                <td>509.44833221286535</td>
+
+                
+
+                <td>426.9666842967272</td>
+
+                
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+</html>

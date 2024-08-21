@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 20px; /* Space between columns */
+            margin-bottom: 40px; /* Space between grid and next section */
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .table-container {
+            width: 800px; /* Full width of the grid item */
+            overflow-x: auto; /* Handle overflow */
+            margin: 0 auto; /* Center table content */
+        }
+        table {
+            width: 100%; /* Table takes full width of the container */
+            border-collapse: collapse;
+            margin-top: 10px; /* Space between subtitle and table */
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center">Gridsize Tests</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2> 20x20 - Standard Model 1</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="2">My Env</th>
+                            <th colspan="2">Gym Env</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>No EH</th>
+                            <th>EH</th>
+                            <th>No EH</th>
+                            <th>EH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 2</td>
+                            <td>Data 3</td>
+                            <td>Data 4</td>
+                            <td>Data 5</td>
+                        </tr>
+                        <tr>
+                            <td>Data 6</td>
+                            <td>Data 7</td>
+                            <td>Data 8</td>
+                            <td>Data 9</td>
+                            <td>Data 10</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2> 20x20 - Standard Model 2</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="2">My Env</th>
+                            <th colspan="2">Gym Env</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>No EH</th>
+                            <th>EH</th>
+                            <th>No EH</th>
+                            <th>EH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 2</td>
+                            <td>Data 3</td>
+                            <td>Data 4</td>
+                            <td>Data 5</td>
+                        </tr>
+                        <tr>
+                            <td>Data 6</td>
+                            <td>Data 7</td>
+                            <td>Data 8</td>
+                            <td>Data 9</td>
+                            <td>Data 10</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2> 40x40 - Standard Model 1</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th>Number of Failures</th>
+                            <th>Number of Successes</th>
+                            <th>Average Path Length</th>
+                            <th>Average Reward</th>
+                            <th>Average EH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2"> My Env </td>
+                            <td>No EH</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+
+                        </tr>
+                        <tr>
+                            <td>EH</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"> Gym Env </td>
+                            <td>No EH</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+
+                        </tr>
+                        <tr>
+                            <td>EH</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                            <td>Data</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h2> 40x40 - Standard Model 2</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="2">My Env</th>
+                            <th colspan="2">Gym Env</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>No EH</th>
+                            <th>EH</th>
+                            <th>No EH</th>
+                            <th>EH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data 1</td>
+                            <td>Data 2</td>
+                            <td>Data 3</td>
+                            <td>Data 4</td>
+                            <td>Data 5</td>
+                        </tr>
+                        <tr>
+                            <td>Data 6</td>
+                            <td>Data 7</td>
+                            <td>Data 8</td>
+                            <td>Data 9</td>
+                            <td>Data 10</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

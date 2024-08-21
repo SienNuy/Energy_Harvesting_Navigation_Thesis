@@ -53,7 +53,7 @@
                         {% set envs = ["results_my_no_EH", "results_my_EH", "results_gym_no_EH", "results_gym_EH"] %}
                         {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_reward", "avg_EH"] %}
 
-                        {% for for env in envs %}
+                        {% for env in envs %}
                         <tr>
                             {% if env == "results_my_no_EH" %}
                             <td rowspan="2"> My Env </td>

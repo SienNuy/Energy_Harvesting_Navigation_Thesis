@@ -2,6 +2,23 @@ from stable_baselines3 import PPO
 import os
 
 
+def generate_file_name(gridsize, goals, obstacles,lightsources, clustered=False, reward_weight=None, range_EH=None):
+    filename = ('models/' + (str(gridsize)) + 'x' + str(gridsize) + '_' + str(len(goals))
+            + '_robots_' + str(len(obstacles)) + '_obs_' +
+            str(len(lightsources)) + '_lights')
+
+    if clustered:
+        filename += '_clustered'
+
+    if reward_weight != None:
+        filename += '_reward_weight_' + str(reward_weight)
+
+    if range_EH != None:
+        filename += '_range_EH_' + str(range_EH)
+
+    return filename
+
+
 def train_gym_env(env, total_timesteps, file_name):
     file_name += '_timesteps=' + str(total_timesteps)
     zip_file = file_name + '.zip'

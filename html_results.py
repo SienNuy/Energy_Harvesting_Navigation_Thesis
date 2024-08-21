@@ -191,15 +191,15 @@ def write_results_to_html(output_file, results, kind_of_test):
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('.'))
     if kind_of_test == 'gridsize':
         # load the template
-        template = env.get_template('template_gridsize_testresults.html')
+        template = env.get_template('template_html/template_gridsize_testresults.html')
 
     elif kind_of_test == 'multirobot':
         # load the template
-        template = env.get_template('template_multirobot_testresults.html')
+        template = env.get_template('template_html/template_multirobot_testresults.html')
 
     elif kind_of_test == 'lightsource':
         # load the template
-        template = env.get_template('template_lightsource_testresults.html')
+        template = env.get_template('template_html/template_lightsource_testresults.html')
 
     else:
         print("HTML file has FAILED to generate. No template for given kind of test")

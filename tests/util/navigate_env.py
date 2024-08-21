@@ -1,7 +1,7 @@
 import time
 import numpy as np
 from stable_baselines3.common.vec_env.util import dict_to_obs
-from util import sample_start_positions_1robot, sample_start_positions_2robots
+from util import sample_start_positions_1robot, sample_start_positions_2robots, sample_start_positions_1robot_small, sample_start_positions_2robots_small
 
 
 def navigate_my_env(my_env, num_start_positions):
@@ -14,9 +14,13 @@ def navigate_my_env(my_env, num_start_positions):
 
     if len(my_env.robots) == 1:
         sample_start_positions = sample_start_positions_1robot
+        if my_env.width < 10:
+            sample_start_positions = sample_start_positions_1robot_small
 
     elif len(my_env.robots) == 2:
         sample_start_positions = sample_start_positions_2robots
+        if my_env.width < 10:
+            sample_start_positions = sample_start_positions_2robots_small
 
     # Run the model 50 times
     for s in range(num_start_positions):
@@ -98,7 +102,7 @@ def navigate_my_env(my_env, num_start_positions):
     return number_failures, number_successes, avg_path_length, avg_reward, avg_EH
 
 
-def navigate_gym_env(gym_env, model, num_robots, num_start_positions):
+def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
     number_failures = 0
     number_successes = 0
 
@@ -108,9 +112,13 @@ def navigate_gym_env(gym_env, model, num_robots, num_start_positions):
 
     if num_robots == 1:
         sample_start_positions = sample_start_positions_1robot
+        if gridsize < 10:
+            sample_start_positions = sample_start_positions_1robot_small
 
     elif num_robots == 2:
         sample_start_positions = sample_start_positions_2robots
+        if gridsize < 10:
+            sample_start_positions = sample_start_positions_2robots_small
 
     # Run the model 50 times and render the output
     for s in range(num_start_positions):

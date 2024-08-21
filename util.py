@@ -1,10 +1,11 @@
 import numpy as np
+from tests.util.models import *
 
 
 def get_sample_start_positions(grid_size, obstacles, goals):
     sample_start_pos_robot1 = []
     sample_start_pos_robot2 = []
-    for i in range(50):
+    for i in range(10):
         while True:
             pos1 = (np.random.randint(grid_size), np.random.randint(grid_size))
             pos2 = (np.random.randint(grid_size), np.random.randint(grid_size))
@@ -33,20 +34,20 @@ temp_sample_start_pos_robot2 = [(4, 0), (9, 9), (5, 0), (0, 3), (9, 6), (5, 9), 
                                 (4, 6), (2, 0), (9, 4), (2, 4), (8, 7), (7, 0)]
 
 
-def get_sample_start_positions_1robot():
+def get_sample_start_positions_1robot(temp_sample_start_pos_robot1):
     sample_start_positions_1robot = []
     for i in range(len(temp_sample_start_pos_robot1)):
         sample_start_positions_1robot.append([temp_sample_start_pos_robot1[i]])
 
-    return sample_start_positions_1robot
+    print(sample_start_positions_1robot)
 
 
-def get_sample_start_positions_2robots():
+def get_sample_start_positions_2robots(temp_sample_start_pos_robot1, temp_sample_start_pos_robot2):
     sample_start_positions_2robots = []
     for i in range(len(temp_sample_start_pos_robot1)):
         sample_start_positions_2robots.append([temp_sample_start_pos_robot1[i], temp_sample_start_pos_robot2[i]])
 
-    return sample_start_positions_2robots
+    print(sample_start_positions_2robots)
 
 
 # sample_start_positions_1robot = get_sample_start_positions_1robot()
@@ -74,10 +75,18 @@ sample_start_positions_2robots = [[(0, 2), (4, 0)], [(6, 7), (9, 9)], [(0, 7), (
                                   [(7, 7), (4, 6)], [(1, 0), (2, 0)], [(1, 9), (9, 4)], [(2, 3), (2, 4)],
                                   [(4, 9), (8, 7)], [(3, 6), (7, 0)]]
 
+#################
+print('start')
 
-def generate_file_name(gridsize, goals, obstacles,lightsources):
-    filename = ('models/' + (str(gridsize)) + 'x' + str(gridsize) + '_' + str(len(goals))
-            + '_robots_' + str(len(obstacles)) + '_obs_' +
-            str(len(lightsources)) + '_lights')
+temp_sample_start_pos_robot1_small = [(2, 2), (4, 0), (4, 3), (1, 4), (0, 0), (4, 4), (0, 2), (2, 1), (3, 2), (2, 3)]
+temp_sample_start_pos_robot2_small = [(1, 3), (1, 0), (0, 3), (4, 4), (4, 1), (3, 0), (0, 1), (1, 4), (2, 1), (4, 0)]
 
-    return filename
+#get_sample_start_positions_1robot(temp_sample_start_pos_robot1_small)
+#get_sample_start_positions_2robots(temp_sample_start_pos_robot1_small, temp_sample_start_pos_robot2_small)
+
+sample_start_positions_1robot_small = [[(2, 2)], [(4, 0)], [(4, 3)], [(1, 4)], [(0, 0)], [(4, 4)], [(0, 2)], [(2, 1)],
+                                       [(3, 2)], [(2, 3)]]
+
+sample_start_positions_2robots_small = [[(2, 2), (1, 3)], [(4, 0), (1, 0)], [(4, 3), (0, 3)], [(1, 4), (4, 4)],
+                                        [(0, 0), (4, 1)], [(4, 4), (3, 0)], [(0, 2), (0, 1)], [(2, 1), (1, 4)],
+                                        [(3, 2), (2, 1)], [(2, 3), (4, 0)]]
