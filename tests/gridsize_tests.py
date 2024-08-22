@@ -1,7 +1,8 @@
-from tests.util.test_env import *
-from tests.util.models import *
+from tests.utils.test_env import *
+from tests.utils.models import *
 from param_test.param_results import *
-from tests.util.train_env import generate_file_name
+from tests.utils.train_env import generate_file_name
+from util import generate_ratio_results
 import csv
 
 
@@ -54,14 +55,18 @@ def test_gridsize_5_standard_1(reward_param, episodes, max_timesteps, total_time
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_gridsize_5_standard_2(reward_param, episodes, max_timesteps, total_timesteps):
-    gridsize, goals, obstacles, lightsources, reward_weight, range_EH = generate_small_model_1()
+    gridsize, goals, obstacles, lightsources, reward_weight, range_EH = generate_small_model_2()
     gridsize = 5
     file_name = generate_file_name(gridsize=gridsize, goals=goals, obstacles=obstacles, lightsources=lightsources)
     use_EH = False
@@ -86,10 +91,14 @@ def test_gridsize_5_standard_2(reward_param, episodes, max_timesteps, total_time
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 # Grid size = 20
@@ -119,10 +128,14 @@ def test_gridsize_20_standard_1(reward_param, episodes, max_timesteps, total_tim
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_gridsize_20_standard_2(reward_param, episodes, max_timesteps, total_timesteps):
@@ -151,14 +164,20 @@ def test_gridsize_20_standard_2(reward_param, episodes, max_timesteps, total_tim
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
+
+##################################################################################################################
 
 def run_parameter_gridsize_tests():
-    test_total_timesteps_grid5_m1 = [10000, 20000]
+    test_total_timesteps_grid5_m1 = [10000, 20000, 50000]
     test_episodes_grid5_m1 = [500, 1000, 2000]
     test_max_timesteps_grid5_m1 = [50, 100]
     test_total_timesteps_grid5_m2 = [20000, 50000]
@@ -166,10 +185,10 @@ def run_parameter_gridsize_tests():
     test_max_timesteps_grid5_m2 = [100, 200]
     # Standard model 1 - Gridsize 5
     run_parameter_gridsize_test_gym_env(1, 5, test_total_timesteps_grid5_m1)
-    run_parameter_gridsize_test_my_env(1, 5, test_episodes_grid5_m1, test_max_timesteps_grid5_m1)
+    #run_parameter_gridsize_test_my_env(1, 5, test_episodes_grid5_m1, test_max_timesteps_grid5_m1)
     # Standard model 2 - Gridsize 5
     run_parameter_gridsize_test_gym_env(2, 5, test_total_timesteps_grid5_m2)
-    run_parameter_gridsize_test_my_env(2, 5, test_episodes_grid5_m2, test_max_timesteps_grid5_m2)
+    #run_parameter_gridsize_test_my_env(2, 5, test_episodes_grid5_m2, test_max_timesteps_grid5_m2)
 
     test_total_timesteps_grid20_m1 = [20000, 50000]
     test_episodes_grid20_m1 = [1000, 5000, 10000]
@@ -187,19 +206,27 @@ def run_parameter_gridsize_tests():
 
 def run_parameter_gridsize_test_gym_env(model, gridsize, test_total_timesteps):
     if model == 1:
-        grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_1()
+        csv_file = "param_test_model1_gridsize=" + str(gridsize) + '_gym_env.csv'
+        if gridsize == 5:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_small_model_1()
+        else:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_1()
         reward_param = reward_param_standard_model_1
     elif model == 2:
-        grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_2()
+        csv_file = "param_test_model2_gridsize=" + str(gridsize) + '_gym_env.csv'
+        if gridsize == 5:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_small_model_2()
+        else:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_2()
         reward_param = reward_param_standard_model_2
-    with open('test', mode='w', newline='') as file:
+    with open(csv_file, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['Total Timesteps', 'EH_False', 'EHF_number_failures', 'EHF_number_successes',
                          'EHF_avg_path_length', 'EHF_avg_reward', 'EHF_avg_EH', 'EH_True', 'EHT_number_failures',
                          'EHT_number_successes', 'EHT_avg_path_length', 'EHT_avg_reward', 'EHT_avg_EH'])
 
         for total_timesteps in test_total_timesteps:
-            file_name = "grid_size=" + str(gridsize)
+            file_name = "model_" + str(model) + "_grid_size=" + str(gridsize)
             results_gym_no_EH = test_gym_env(gridsize=gridsize, goals=goals, obstacles=obstacles,
                                              lightsources=lightsources,
                                              use_EH=False, reward_param=reward_param, reward_weight=reward_weight,
@@ -228,19 +255,26 @@ def run_parameter_gridsize_test_gym_env(model, gridsize, test_total_timesteps):
 
 def run_parameter_gridsize_test_my_env(model, gridsize, test_episodes, test_max_timesteps):
     if model == 1:
-        grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_1()
+        csv_file = "param_test_model1_gridsize=" + str(gridsize) + '_my_env.csv'
+        if gridsize == 5:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_small_model_1()
+        else:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_1()
         reward_param = reward_param_standard_model_1
     elif model == 2:
-        grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_2()
+        csv_file = "param_test_model2_gridsize=" + str(gridsize) + '_my_env.csv'
+        if gridsize == 5:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_small_model_2()
+        else:
+            grid, goals, obstacles, lightsources, reward_weight, range_EH = generate_standard_model_2()
         reward_param = reward_param_standard_model_2
-    with open('test', mode='w', newline='') as file:
+    with open(csv_file, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['Episodes', 'Max Timesteps', 'EH_False', 'EHF_number_failures', 'EHF_number_successes',
                          'EHF_avg_path_length', 'EHF_avg_reward', 'EHF_avg_EH', 'EH_True', 'EHT_number_failures',
                          'EHT_number_successes', 'EHT_avg_path_length', 'EHT_avg_reward', 'EHT_avg_EH'])
         for episodes in test_episodes:
             for max_timesteps in test_max_timesteps:
-                file_name = "grid_size=" + str(gridsize)
                 results_my_no_EH = test_my_env(gridsize=gridsize, goals=goals, obstacles=obstacles,
                                                lightsources=lightsources,
                                                use_EH=False, reward_param=reward_param, reward_weight=reward_weight,

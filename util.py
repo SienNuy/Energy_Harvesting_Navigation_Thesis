@@ -1,5 +1,5 @@
 import numpy as np
-from tests.util.models import *
+from tests.utils.models import *
 
 
 def get_sample_start_positions(grid_size, obstacles, goals):
@@ -90,3 +90,14 @@ sample_start_positions_1robot_small = [[(2, 2)], [(4, 0)], [(4, 3)], [(1, 4)], [
 sample_start_positions_2robots_small = [[(2, 2), (1, 3)], [(4, 0), (1, 0)], [(4, 3), (0, 3)], [(1, 4), (4, 4)],
                                         [(0, 0), (4, 1)], [(4, 4), (3, 0)], [(0, 2), (0, 1)], [(2, 1), (1, 4)],
                                         [(3, 2), (2, 1)], [(2, 3), (4, 0)]]
+
+
+def generate_ratio_results(results_no_EH, results_EH):
+    EH_ratio = results_EH["avg_EH"] / results_no_EH["avg_EH"]
+    path_ratio = results_EH["avg_path_length"] / results_no_EH["avg_path_length"]
+
+    trade_off = EH_ratio/path_ratio
+
+    return {'EH_ratio': EH_ratio,
+            'Path_ratio': path_ratio,
+            'Trade_off': trade_off}

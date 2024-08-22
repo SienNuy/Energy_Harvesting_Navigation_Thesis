@@ -1,5 +1,5 @@
-from tests.util.train_env import *
-from tests.util.navigate_env import *
+from tests.utils.train_env import *
+from tests.utils.navigate_env import *
 from stable_baselines3.common.vec_env import DummyVecEnv
 from environment.my_environment.my_robot import Robot
 from environment.my_environment.my_environment import Environment

@@ -1,4 +1,4 @@
-from tests.util.test_env import *
+from tests.utils.test_env import *
 from param_results import reward_param_standard_model_1, reward_param_standard_model_2
 import csv
 

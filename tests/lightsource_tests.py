@@ -1,8 +1,10 @@
-from tests.util.test_env import *
-from tests.util.models import *
+from tests.utils.test_env import *
+from tests.utils.models import *
 from param_test.param_results import *
-from tests.util.train_env import generate_file_name
+from tests.utils.train_env import generate_file_name
+from util import generate_ratio_results
 import csv
+
 
 def run_all_lightsource_tests():
     results_1 = {'standard_model_1': test_1_lightsource_standard_1(reward_param=reward_param_standard_model_1,
@@ -62,11 +64,14 @@ def test_1_lightsource_standard_1(reward_param, episodes, max_timesteps, total_t
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
-
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_1_lightsource_standard_2(reward_param, episodes, max_timesteps, total_timesteps):
@@ -95,10 +100,14 @@ def test_1_lightsource_standard_2(reward_param, episodes, max_timesteps, total_t
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_7_lightsources_sparse_standard_1(reward_param, episodes, max_timesteps, total_timesteps):
@@ -127,10 +136,14 @@ def test_7_lightsources_sparse_standard_1(reward_param, episodes, max_timesteps,
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_7_lightsources_sparse_standard_2(reward_param, episodes, max_timesteps, total_timesteps):
@@ -159,10 +172,14 @@ def test_7_lightsources_sparse_standard_2(reward_param, episodes, max_timesteps,
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_7_lightsources_clustered_standard_1(reward_param, episodes, max_timesteps, total_timesteps):
@@ -191,10 +208,14 @@ def test_7_lightsources_clustered_standard_1(reward_param, episodes, max_timeste
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
 
 def test_7_lightsources_clustered_standard_2(reward_param, episodes, max_timesteps, total_timesteps):
@@ -223,11 +244,17 @@ def test_7_lightsources_clustered_standard_2(reward_param, episodes, max_timeste
                                   use_EH=use_EH, reward_param=reward_param, reward_weight=reward_weight,
                                   range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+    ratio_results_my = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+    ratio_results_gym = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
     return {'results_my_no_EH': results_my_no_EH,
             'results_gym_no_EH': results_gym_no_EH,
             'results_my_EH': results_my_EH,
-            'results_gym_EH': results_gym_EH}
+            'results_gym_EH': results_gym_EH,
+            'ratio_results_my': ratio_results_my,
+            'ratio_results_gym': ratio_results_gym}
 
+
+##################################################################################################################
 
 def run_parameter_lightsource_tests():
     test_reward_EH_power = [1, 2]
@@ -259,14 +286,16 @@ def run_parameter_lightsource_tests():
 
 def run_parameter_lightsource_test_gym_env(model, lightsources, test_reward_EH, test_reward_EH_power, lightsource_str):
     if model == 1:
+        csv_file = "param_test_model1_lights=" + lightsource_str + '_gym_env.csv'
         gridsize, goals, obstacles, lights, reward_weight, range_EH = generate_standard_model_1()
         reward_param = reward_param_standard_model_1
         total_timesteps = total_timesteps_standard_model_1
     elif model == 2:
+        csv_file = "param_test_modeel2_lights=" + lightsource_str + '_gym_env.csv'
         gridsize, goals, obstacles, lights, reward_weight, range_EH = generate_standard_model_2()
         reward_param = reward_param_standard_model_2
         total_timesteps = total_timesteps_standard_model_2
-    with open('test', mode='w', newline='') as file:
+    with open(csv_file, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['reward_EH', 'reward_EH_power', 'EH_False', 'EHF_number_failures', 'EHF_number_successes',
                          'EHF_avg_path_length', 'EHF_avg_reward', 'EHF_avg_EH', 'EH_True', 'EHT_number_failures',
@@ -277,7 +306,7 @@ def run_parameter_lightsource_test_gym_env(model, lightsources, test_reward_EH, 
                 reward_param['reward_EH'] = reward_EH
                 reward_param['reward_EH_power'] = reward_EH_power
 
-                file_name = "lights=" + lightsource_str
+                file_name = "model_" + str(model) + "_lights=" + lightsource_str + "_rEH=" + str(reward_EH) + "_rEHp=" + str(reward_EH_power)
                 results_gym_no_EH = test_gym_env(gridsize=gridsize, goals=goals, obstacles=obstacles,
                                                  lightsources=lightsources,
                                                  use_EH=False, reward_param=reward_param, reward_weight=reward_weight,

@@ -47,6 +47,9 @@
                             <th>Average Path Length</th>
                             <th>Average Reward</th>
                             <th>Average EH</th>
+                            <th>EH Ratio</th>
+                            <th>Path Ratio</th>
+                            <th>Trade-off (EH / Path Length)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,12 +59,12 @@
                         {% for env in envs %}
                         <tr>
                             {% if env == "results_my_no_EH" %}
-                            <td rowspan="2"> My Env </td>
+                            <td rowspan="2"> Q-learning </td>
                             <td>No EH</td>
                             {% elif env == "results_my_EH"%}
                             <td>EH</td>
                             {% elif env == "results_gym_no_EH" %}
-                            <td rowspan="2"> Gym Env </td>
+                            <td rowspan="2"> PPO </td>
                             <td>No EH</td>
                             {% elif env == "results_gym_EH"%}
                             <td>EH</td>
@@ -70,6 +73,7 @@
                             {% for metric in metrics %}
                             <td>{{ results[env][metric] }}</td>
                             {% endfor %}
+
                         </tr>
                         {% endfor %}
                     </tbody>

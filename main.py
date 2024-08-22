@@ -6,7 +6,7 @@ from tests.range_EH_tests import run_all_range_EH_tests
 from html_results import *
 
 # PARAM TEST SCENARIOS
-run_parameter_gridsize_tests()
+#run_parameter_gridsize_tests()
 run_parameter_lightsource_tests()
 
 

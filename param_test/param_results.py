@@ -31,17 +31,17 @@ max_timesteps_standard_model_2 = 200
 #########################################################################################################
 # TESTS
 # Grid size
-training_timesteps_gridsize_5_model_1 = 0
+total_timesteps_gridsize_5_model_1 = 0
 episodes_gridsize_5_model_1 = 0
 max_timesteps_gridsize_5_model_1 = 0
-training_timesteps_gridsize_5_model_2 = 0
+total_timesteps_gridsize_5_model_2 = 0
 episodes_gridsize_5_model_2 = 0
 max_timesteps_gridsize_5_model_2 = 0
 
-training_timesteps_gridsize_20_model_1 = 0
+total_timesteps_gridsize_20_model_1 = 0
 episodes_gridsize_20_model_1 = 0
 max_timesteps_gridsize_20_model_1 = 0
-training_timesteps_gridsize_20_model_2 = 0
+total_timesteps_gridsize_20_model_2 = 0
 episodes_gridsize_20_model_2 = 0
 max_timesteps_gridsize_20_model_2 = 0
 
