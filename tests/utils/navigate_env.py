@@ -12,6 +12,8 @@ def navigate_my_env(my_env, num_start_positions):
     avg_EH = 0
     avg_reward = 0
 
+    path_info = []
+
     if len(my_env.robots) == 1:
         sample_start_positions = sample_start_positions_1robot
         if my_env.width < 10:
@@ -29,17 +31,21 @@ def navigate_my_env(my_env, num_start_positions):
         for r in range(len(my_env.robots)):
             my_env.robots[r].reset(start_position[r])
 
-        path = {}
-        for robot in my_env.robots:
-            path[robot.id] = []
-
         path_length_ = 0
         reward_ = 0
         EH_ = 0
 
+        if len(path_info) < 3:
+            start_positions = [sample_start_positions[s][0]]
+            path1 = {0: sample_start_positions[s][0]}
+            path2 = {}
+            if len(my_env.robots) == 2:
+                path2 = {0: sample_start_positions[s][1]}
+                start_positions.append(sample_start_positions[s][1])
+
         # Max 50 steps
         for i in range(50):
-            for robot in my_env.robots:
+            for r, robot in enumerate(my_env.robots):
                 if robot.is_done():
                     continue
 
@@ -62,23 +68,18 @@ def navigate_my_env(my_env, num_start_positions):
                     next_state, reward, info = my_env.step(robot, second_best_action)
                     print('COLLISION AVOIDANCE')
 
-                # Check if we're going in circles > chose next best action
-                # elif next_state in path[robot.id]:
-                #     print('ERROR We has a situation where we would go back to a previous state')
-                #     # go on with second best action
-                #     # reset robot to the current state
-                #     robot.position = state
-                #     # Get the indices that would sort the array
-                #     sorted_indices = np.argsort(q_values)
-                #     # get second_best_action
-                #     second_best_action = sorted_indices[-2]
-                #     next_state, reward = my_env.step(robot, second_best_action)
-
-                path[robot.id].append(next_state)
                 reward_ += reward
-                path_length_ += 1
                 EH_ += robot.harvested_energy
+                if len(path_info) < 3:
+                    if r == 0:
+                        path_length_ += 1
+                        path1[i + 1] = next_state
+                    if r == 1:
+                        path2[i + 1] = next_state
 
+                else:
+                    if r == 0:
+                        path_length_ += 1
             if my_env.done():
                 number_successes += 1
 
@@ -90,6 +91,10 @@ def navigate_my_env(my_env, num_start_positions):
         if not my_env.done():
             number_failures += 1
 
+        if len(path_info) < 3:
+            p_info = {'start_positions': start_positions, 'gridsize': my_env.width, 'path1': path1, 'path2': path2}
+            path_info.append(p_info)
+
     avg_path_length /= num_start_positions
     avg_reward /= num_start_positions
     avg_EH /= num_start_positions
@@ -99,7 +104,7 @@ def navigate_my_env(my_env, num_start_positions):
     print("avg reward = " + str(avg_reward))
     print("avg EH = " + str(avg_EH))
 
-    return number_failures, number_successes, avg_path_length, avg_reward, avg_EH
+    return number_failures, number_successes, avg_path_length, avg_reward, avg_EH, path_info
 
 
 def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
@@ -109,6 +114,8 @@ def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
     avg_path_length = 0
     avg_EH = 0
     avg_reward = 0
+
+    path_info = []
 
     if num_robots == 1:
         sample_start_positions = sample_start_positions_1robot
@@ -140,12 +147,21 @@ def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
         reward = 0
         EH = 0
 
+        if len(path_info) < 3:
+            start_positions = [sample_start_positions[s][0]]
+            path1 = {0: sample_start_positions[s][0]}
+            path2 = {}
+            if num_robots == 2:
+                path2 = {0: sample_start_positions[s][1]}
+                start_positions.append(sample_start_positions[s][1])
+
         # Max 50 steps
         for i in range(50):
             actions, _states = model.predict(obs, deterministic=False)
             obs, rewards, done, info = gym_env.step(actions)
             #gym_env.render()
             #time.sleep(0.2)
+
 
             path_length += 1
             reward += rewards[0]
@@ -159,9 +175,26 @@ def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
                 avg_EH += EH
                 avg_reward += reward
 
+                if len(path_info) < 3:
+                    new_positions = obs['goals'][0]
+                    path1[i + 1] = tuple(new_positions[0])
+                    if num_robots == 2:
+                        path2[i + 1] = tuple(new_positions[1])
+
                 break
+
+            if len(path_info) < 3:
+                new_positions = obs['robots'][0]
+                path1[i+1] = tuple(new_positions[0])
+                if num_robots == 2:
+                    path2[i+1] = tuple(new_positions[1])
+
         if not done:
             number_failures += 1
+
+        if len(path_info) < 3:
+            p_info = {'start_positions': start_positions, 'gridsize': gridsize, 'path1': path1, 'path2': path2}
+            path_info.append(p_info)
 
     gym_env.close()
 
@@ -174,4 +207,8 @@ def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
     print("avg reward = " + str(avg_reward))
     print("avg EH = " + str(avg_EH))
 
-    return number_failures, number_successes, avg_path_length, avg_reward, avg_EH
+    # Rounding the floating points to only have 2 decimals
+    avg_reward = round(avg_reward, 2)
+    avg_EH = round(avg_EH, 2)
+
+    return number_failures, number_successes, avg_path_length, avg_reward, avg_EH, path_info

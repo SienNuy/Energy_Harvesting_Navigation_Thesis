@@ -17,7 +17,7 @@
         }
 
         .table-container {
-            width: 800px; /* Full width of the grid item */
+            width: 1500px; /* Full width of the grid item */
             overflow-x: auto; /* Handle overflow */
             margin: 0 auto; /* Center table content */
         }
@@ -26,6 +26,8 @@
             width: 100%; /* Table takes full width of the container */
             border-collapse: collapse;
             margin-top: 10px; /* Space between subtitle and table */
+            font-size: 20px; /* Set font size for the entire table */
+
         }
 
         table, th, td {
@@ -59,12 +61,17 @@
                 <th>Average Path Length</th>
                 <th>Average Reward</th>
                 <th>Average EH</th>
+                <th style="border-left: 5px solid black;">Anomaly</th>
+                <th>EH Ratio</th>
+                <th>Path Ratio</th>
+                <th>Trade-off (EH / Path Length)</th>
             </tr>
             </thead>
             <tbody>
             {% set std_models = ["standard_model_1", "standard_model_2"] %}
             {% set envs = ["results_my_no_EH", "results_my_EH", "results_gym_no_EH", "results_gym_EH"] %}
             {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_reward", "avg_EH"] %}
+            {% set ratio_metrics = ["Anomaly", "EH_ratio", "Path_ratio", "Trade_off"] %}
 
             {% for std_model in std_models %}
             {% if std_model == "standard_model_1" %}
@@ -102,6 +109,28 @@
                 <td>{{ models[std_model][env][metric] }}</td>
 
                 {% endfor %}
+
+                {% if env == "results_my_no_EH" %}
+                    {% for ratio_metric in ratio_metrics %}
+                        {% if ratio_metric == "Anomaly" %}
+                            <td rowspan="2" style="border-left: 5px solid black;">{{ models[std_model]["ratio_results_my"][ratio_metric] }}</td>
+                        {% else %}
+                            <td rowspan="2">{{ models[std_model]["ratio_results_my"][ratio_metric] }} %</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if env == "results_gym_no_EH" %}
+                    {% for ratio_metric in ratio_metrics %}
+{                       % if ratio_metric == "Anomaly" %}
+                            <td rowspan="2" style="border-left: 5px solid black;">{{ models[std_model]["ratio_results_gym"][ratio_metric] }}</td>
+                        {% else %}
+                            <td rowspan="2">{{ models[std_model]["ratio_results_gym"][ratio_metric] }} %</td>
+                        {% endif %}
+
+                    {% endfor %}
+                {% endif %}
+
                 </tr>
 
                 {% endfor %}

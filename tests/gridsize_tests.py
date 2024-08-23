@@ -8,22 +8,22 @@ import csv
 
 def run_all_gridsize_tests():
     results_5 = {'standard_model_1': test_gridsize_5_standard_1(reward_param=reward_param_standard_model_1,
-                                                                episodes=episodes_standard_model_1,
-                                                                max_timesteps=max_timesteps_standard_model_1,
-                                                                total_timesteps=total_timesteps_standard_model_1),
+                                                                episodes=episodes_gridsize_5_model_1,
+                                                                max_timesteps=max_timesteps_gridsize_5_model_1,
+                                                                total_timesteps=total_timesteps_gridsize_5_model_1),
                  'standard_model_2': test_gridsize_5_standard_2(reward_param=reward_param_standard_model_2,
-                                                                episodes=episodes_standard_model_2,
-                                                                max_timesteps=max_timesteps_standard_model_2,
-                                                                total_timesteps=total_timesteps_standard_model_2)}
+                                                                episodes=episodes_gridsize_5_model_2,
+                                                                max_timesteps=max_timesteps_gridsize_5_model_2,
+                                                                total_timesteps=total_timesteps_gridsize_5_model_2)}
 
     results_20 = {'standard_model_1': test_gridsize_20_standard_1(reward_param=reward_param_standard_model_1,
-                                                                  episodes=episodes_standard_model_1,
-                                                                  max_timesteps=max_timesteps_standard_model_1,
-                                                                  total_timesteps=total_timesteps_standard_model_1),
+                                                                  episodes=episodes_gridsize_20_model_1,
+                                                                  max_timesteps=max_timesteps_gridsize_20_model_1,
+                                                                  total_timesteps=total_timesteps_gridsize_20_model_1),
                   'standard_model_2': test_gridsize_20_standard_2(reward_param=reward_param_standard_model_2,
-                                                                  episodes=episodes_standard_model_2,
-                                                                  max_timesteps=max_timesteps_standard_model_2,
-                                                                  total_timesteps=total_timesteps_standard_model_2)}
+                                                                  episodes=episodes_gridsize_20_model_2,
+                                                                  max_timesteps=max_timesteps_gridsize_20_model_2,
+                                                                  total_timesteps=total_timesteps_gridsize_20_model_2)}
 
     return {'5x5': results_5, '20x20': results_20}
 
@@ -190,7 +190,7 @@ def run_parameter_gridsize_tests():
     run_parameter_gridsize_test_gym_env(2, 5, test_total_timesteps_grid5_m2)
     #run_parameter_gridsize_test_my_env(2, 5, test_episodes_grid5_m2, test_max_timesteps_grid5_m2)
 
-    test_total_timesteps_grid20_m1 = [20000, 50000]
+    test_total_timesteps_grid20_m1 = [20000, 50000, 100000]
     test_episodes_grid20_m1 = [1000, 5000, 10000]
     test_max_timesteps_grid20_m1 = [100, 200]
     test_total_timesteps_grid20_m2 = [50000, 100000]
@@ -198,10 +198,10 @@ def run_parameter_gridsize_tests():
     test_max_timesteps_grid20_m2 = [200, 400]
     # Standard model 1 - Gridsize 5
     run_parameter_gridsize_test_gym_env(1, 20, test_total_timesteps_grid20_m1)
-    run_parameter_gridsize_test_my_env(1, 20, test_episodes_grid20_m1, test_max_timesteps_grid20_m1)
+    #run_parameter_gridsize_test_my_env(1, 20, test_episodes_grid20_m1, test_max_timesteps_grid20_m1)
     # Standard model 2 - Gridsize 5
     run_parameter_gridsize_test_gym_env(2, 20, test_total_timesteps_grid20_m2)
-    run_parameter_gridsize_test_my_env(2, 20, test_episodes_grid20_m2, test_max_timesteps_grid20_m2)
+    #run_parameter_gridsize_test_my_env(2, 20, test_episodes_grid20_m2, test_max_timesteps_grid20_m2)
 
 
 def run_parameter_gridsize_test_gym_env(model, gridsize, test_total_timesteps):

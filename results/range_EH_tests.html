@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Results Page</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 20px; /* Space between columns */
+            margin-bottom: 40px; /* Space between grid and next section */
+        }
+
+        .grid-item {
+            text-align: center;
+        }
+
+        .table-container {
+            width: 1500px; /* Full width of the grid item */
+            overflow-x: auto; /* Handle overflow */
+            margin: 0 auto; /* Center table content */
+        }
+
+        table {
+            width: 100%; /* Table takes full width of the container */
+            border-collapse: collapse;
+            margin-top: 10px; /* Space between subtitle and table */
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center">Gridsize Tests</h1>
+
+
+<div class="grid-item">
+    <h2>Range EH = 2</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average Reward</th>
+                <th>Average EH</th>
+                <th>EH Ratio</th>
+                <th>Path Ratio</th>
+                <th>Trade-off (EH / Path Length)</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.4</td>
+
+                
+
+                <td>99.36000000000001</td>
+
+                
+
+                <td>7.625</td>
+
+                
+
+                
+                    
+
+                    <td rowspan="2">4.363934426229508</td>
+
+                    
+
+                    <td rowspan="2">1.081081081081081</td>
+
+                    
+
+                    <td rowspan="2">4.036639344262295</td>
+
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.0</td>
+
+                
+
+                <td>52.3125</td>
+
+                
+
+                <td>33.275</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.7</td>
+
+                
+
+                <td>99.23999999165535</td>
+
+                
+
+                <td>9.175</td>
+
+                
+
+                
+
+                
+                    
+
+                    <td rowspan="2">3.6076294277929155</td>
+
+                    
+
+                    <td rowspan="2">1.208955223880597</td>
+
+                    
+
+                    <td rowspan="2">2.9840885390385847</td>
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.1</td>
+
+                
+
+                <td>51.97499996758997</td>
+
+                
+
+                <td>33.1</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+                <td>998.6</td>
+
+                
+
+                <td>37.425</td>
+
+                
+
+                
+                    
+
+                    <td rowspan="2">2.0006680026720107</td>
+
+                    
+
+                    <td rowspan="2">0.9705882352941176</td>
+
+                    
+
+                    <td rowspan="2">2.0612943057832838</td>
+
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+                <td>504.27250000000004</td>
+
+                
+
+                <td>74.875</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>14.1</td>
+
+                
+
+                <td>990.3399945870042</td>
+
+                
+
+                <td>116.125</td>
+
+                
+
+                
+
+                
+                    
+
+                    <td rowspan="2">4.685683530678149</td>
+
+                    
+
+                    <td rowspan="2">1.3971631205673758</td>
+
+                    
+
+                    <td rowspan="2">3.35371257779502</td>
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>1</td>
+
+                
+
+                <td>9</td>
+
+                
+
+                <td>19.7</td>
+
+                
+
+                <td>448.4099978696555</td>
+
+                
+
+                <td>544.125</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>Range EH = 5</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average Reward</th>
+                <th>Average EH</th>
+                <th>EH Ratio</th>
+                <th>Path Ratio</th>
+                <th>Trade-off (EH / Path Length)</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.2</td>
+
+                
+
+                <td>99.38000000000001</td>
+
+                
+
+                <td>13.783305555555557</td>
+
+                
+
+                
+                    
+
+                    <td rowspan="2">2.6961279647883205</td>
+
+                    
+
+                    <td rowspan="2">1.1111111111111112</td>
+
+                    
+
+                    <td rowspan="2">2.4265151683094883</td>
+
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.0</td>
+
+                
+
+                <td>52.50326388888889</td>
+
+                
+
+                <td>37.16155555555556</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+                <td>99.41999999135733</td>
+
+                
+
+                <td>15.840944404900075</td>
+
+                
+
+                
+
+                
+                    
+
+                    <td rowspan="2">2.014142305909858</td>
+
+                    
+
+                    <td rowspan="2">1.161764705882353</td>
+
+                    
+
+                    <td rowspan="2">1.7336921114160802</td>
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.9</td>
+
+                
+
+                <td>52.205000446480696</td>
+
+                
+
+                <td>31.905916291475297</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+                <td>998.6200000000001</td>
+
+                
+
+                <td>52.01719444444443</td>
+
+                
+
+                
+                    
+
+                    <td rowspan="2">1.8264307902461745</td>
+
+                    
+
+                    <td rowspan="2">1.0</td>
+
+                    
+
+                    <td rowspan="2">1.8264307902461745</td>
+
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+                <td>505.9080555555556</td>
+
+                
+
+                <td>95.00580555555555</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>12.5</td>
+
+                
+
+                <td>989.499995867908</td>
+
+                
+
+                <td>104.69749762713909</td>
+
+                
+
+                
+
+                
+                    
+
+                    <td rowspan="2">1.8994503693300755</td>
+
+                    
+
+                    <td rowspan="2">1.168</td>
+
+                    
+
+                    <td rowspan="2">1.626241754563421</td>
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>14.6</td>
+
+                
+
+                <td>500.4140920728445</td>
+
+                
+
+                <td>198.86770053580403</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+</html>

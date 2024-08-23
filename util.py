@@ -93,11 +93,20 @@ sample_start_positions_2robots_small = [[(2, 2), (1, 3)], [(4, 0), (1, 0)], [(4,
 
 
 def generate_ratio_results(results_no_EH, results_EH):
-    EH_ratio = results_EH["avg_EH"] / results_no_EH["avg_EH"]
-    path_ratio = results_EH["avg_path_length"] / results_no_EH["avg_path_length"]
+    anomaly = False
+    if results_EH["avg_EH"] <= results_no_EH["avg_EH"]:
+        anomaly = True
+    EH_ratio = results_EH["avg_EH"] / results_no_EH["avg_EH"] * 100
+    path_ratio = results_EH["avg_path_length"] / results_no_EH["avg_path_length"] * 100
 
-    trade_off = EH_ratio/path_ratio
+    trade_off = EH_ratio/path_ratio * 100
 
-    return {'EH_ratio': EH_ratio,
+    # Rounding the floating points to only have 2 decimals
+    EH_ratio = round(EH_ratio, 2)
+    path_ratio = round(path_ratio, 2)
+    trade_off = round(trade_off, 2)
+
+    return {'Anomaly': anomaly,
+            'EH_ratio': EH_ratio,
             'Path_ratio': path_ratio,
             'Trade_off': trade_off}

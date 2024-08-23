@@ -31,19 +31,21 @@ max_timesteps_standard_model_2 = 200
 #########################################################################################################
 # TESTS
 # Grid size
-total_timesteps_gridsize_5_model_1 = 0
-episodes_gridsize_5_model_1 = 0
-max_timesteps_gridsize_5_model_1 = 0
-total_timesteps_gridsize_5_model_2 = 0
-episodes_gridsize_5_model_2 = 0
-max_timesteps_gridsize_5_model_2 = 0
+total_timesteps_gridsize_5_model_1 = 10000
+episodes_gridsize_5_model_1 = 500
+max_timesteps_gridsize_5_model_1 = 100
 
-total_timesteps_gridsize_20_model_1 = 0
-episodes_gridsize_20_model_1 = 0
-max_timesteps_gridsize_20_model_1 = 0
-total_timesteps_gridsize_20_model_2 = 0
-episodes_gridsize_20_model_2 = 0
-max_timesteps_gridsize_20_model_2 = 0
+total_timesteps_gridsize_5_model_2 = 50000
+episodes_gridsize_5_model_2 = 1000
+max_timesteps_gridsize_5_model_2 = 200
+
+total_timesteps_gridsize_20_model_1 = 100000
+episodes_gridsize_20_model_1 = 1000
+max_timesteps_gridsize_20_model_1 = 200
+
+total_timesteps_gridsize_20_model_2 = 200000
+episodes_gridsize_20_model_2 = 5000
+max_timesteps_gridsize_20_model_2 = 400
 
 # Lightsources
 reward_EH_lights_1_model_1 = {

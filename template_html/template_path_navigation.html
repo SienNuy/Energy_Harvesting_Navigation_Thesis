@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center"> Path navigation: {{ data["nr_of_robots"] }} Robots </h1>
+
+{% for path_info in data["path_info"] %}
+<h2 style="text-align: center">
+    Start Positions:
+    {% for start_pos in path_info["start_positions"] %}
+    {{ start_pos }},
+    {% endfor %}
+</h2>
+
+<table>
+    <tbody>
+    {% for x in range(path_info["gridsize"]) %}
+    <tr>
+        {% for y in range(path_info["gridsize"]) %}
+            {% set matched1 = "False" %}
+            {% set matched2 = "False" %}
+            {% set ts1 = "" %}
+            {% set ts2 = "" %}
+
+            {% for time_step1, position1 in path_info["path1"].items() %}
+                {% if (x, y) == position1 %}
+                    {% set matched1 = "True" %}
+                    {% set ts1 = time_step1 %}
+                {% endif %}
+            {% endfor %}
+
+            {% for time_step2, position2 in path_info["path2"].items() %}
+                {% if (x, y) == position2 %}
+                    {% set matched2 = "True" %}
+                    {% set ts2 = time_step2 %}
+                {% endif %}
+            {% endfor %}
+
+            {% if matched1 == "False" and matched2 == "False" %}
+                <td></td>
+            {% elif matched1 == "True" and matched2 == "True" %}
+                <td style="background-color: limegreen">
+                    <div> {{ ts1 }} {{ ts2 }} </div>
+                </td>
+            {% elif matched1 == "True" %}
+                <td style="background-color: limegreen">
+                    <div> {{ ts1 }} </div>
+                </td>
+            {% elif matched2 == "True" %}
+                <td style="background-color: #0048ff">
+                    <div> {{ ts2 }}</div>
+                </td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endfor %}
+</body>
+</html>

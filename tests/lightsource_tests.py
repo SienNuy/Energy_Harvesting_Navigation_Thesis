@@ -291,7 +291,7 @@ def run_parameter_lightsource_test_gym_env(model, lightsources, test_reward_EH, 
         reward_param = reward_param_standard_model_1
         total_timesteps = total_timesteps_standard_model_1
     elif model == 2:
-        csv_file = "param_test_modeel2_lights=" + lightsource_str + '_gym_env.csv'
+        csv_file = "param_test_model2_lights=" + lightsource_str + '_gym_env.csv'
         gridsize, goals, obstacles, lights, reward_weight, range_EH = generate_standard_model_2()
         reward_param = reward_param_standard_model_2
         total_timesteps = total_timesteps_standard_model_2
