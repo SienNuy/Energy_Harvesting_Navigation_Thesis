@@ -185,10 +185,10 @@ def run_parameter_gridsize_tests():
     test_max_timesteps_grid5_m2 = [100, 200]
     # Standard model 1 - Gridsize 5
     run_parameter_gridsize_test_gym_env(1, 5, test_total_timesteps_grid5_m1)
-    #run_parameter_gridsize_test_my_env(1, 5, test_episodes_grid5_m1, test_max_timesteps_grid5_m1)
+    run_parameter_gridsize_test_my_env(1, 5, test_episodes_grid5_m1, test_max_timesteps_grid5_m1)
     # Standard model 2 - Gridsize 5
     run_parameter_gridsize_test_gym_env(2, 5, test_total_timesteps_grid5_m2)
-    #run_parameter_gridsize_test_my_env(2, 5, test_episodes_grid5_m2, test_max_timesteps_grid5_m2)
+    run_parameter_gridsize_test_my_env(2, 5, test_episodes_grid5_m2, test_max_timesteps_grid5_m2)
 
     test_total_timesteps_grid20_m1 = [20000, 50000, 100000]
     test_episodes_grid20_m1 = [1000, 5000, 10000]
@@ -198,10 +198,10 @@ def run_parameter_gridsize_tests():
     test_max_timesteps_grid20_m2 = [200, 400]
     # Standard model 1 - Gridsize 5
     run_parameter_gridsize_test_gym_env(1, 20, test_total_timesteps_grid20_m1)
-    #run_parameter_gridsize_test_my_env(1, 20, test_episodes_grid20_m1, test_max_timesteps_grid20_m1)
+    run_parameter_gridsize_test_my_env(1, 20, test_episodes_grid20_m1, test_max_timesteps_grid20_m1)
     # Standard model 2 - Gridsize 5
     run_parameter_gridsize_test_gym_env(2, 20, test_total_timesteps_grid20_m2)
-    #run_parameter_gridsize_test_my_env(2, 20, test_episodes_grid20_m2, test_max_timesteps_grid20_m2)
+    run_parameter_gridsize_test_my_env(2, 20, test_episodes_grid20_m2, test_max_timesteps_grid20_m2)
 
 
 def run_parameter_gridsize_test_gym_env(model, gridsize, test_total_timesteps):
@@ -236,6 +236,8 @@ def run_parameter_gridsize_test_gym_env(model, gridsize, test_total_timesteps):
                                           use_EH=True, reward_param=reward_param, reward_weight=reward_weight,
                                           range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
+            ratio_results = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
+
             writer.writerow([
                 str(total_timesteps),
                 'False',
@@ -249,7 +251,12 @@ def run_parameter_gridsize_test_gym_env(model, gridsize, test_total_timesteps):
                 str(results_gym_EH['number_successes']),
                 str(results_gym_EH['avg_path_length']),
                 str(results_gym_EH['avg_reward']),
-                str(results_gym_EH['avg_EH'])
+                str(results_gym_EH['avg_EH']),
+
+                str(ratio_results['Anomaly']),
+                str(ratio_results['EH_ratio']),
+                str(ratio_results['Path_ratio']),
+                str(ratio_results['Trade_off'])
             ])
 
 
@@ -284,6 +291,8 @@ def run_parameter_gridsize_test_my_env(model, gridsize, test_episodes, test_max_
                                             use_EH=True, reward_param=reward_param, reward_weight=reward_weight,
                                             range_EH=range_EH, episodes=episodes, max_timesteps=max_timesteps)
 
+                ratio_results = generate_ratio_results(results_no_EH=results_my_no_EH, results_EH=results_my_EH)
+
                 writer.writerow([
                     str(episodes),
                     str(max_timesteps),
@@ -298,5 +307,10 @@ def run_parameter_gridsize_test_my_env(model, gridsize, test_episodes, test_max_
                     str(results_my_EH['number_successes']),
                     str(results_my_EH['avg_path_length']),
                     str(results_my_EH['avg_reward']),
-                    str(results_my_EH['avg_EH'])
+                    str(results_my_EH['avg_EH']),
+
+                    str(ratio_results['Anomaly']),
+                    str(ratio_results['EH_ratio']),
+                    str(ratio_results['Path_ratio']),
+                    str(ratio_results['Trade_off'])
                 ])

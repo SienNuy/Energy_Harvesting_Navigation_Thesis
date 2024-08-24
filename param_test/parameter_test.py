@@ -1,6 +1,7 @@
 from tests.utils.test_env import *
 from param_results import reward_param_standard_model_1, reward_param_standard_model_2
 import csv
+from util import generate_ratio_results
 
 # To find the sweet spot for all kinds of parameters we will run a giant test
 
@@ -35,7 +36,8 @@ def run_parameter_test_gym_env(test_goals, num_start_positions, csv_file_name):
         writer.writerow(['reward_done', 'penalty_invalid_move', 'penalty_collision', 'penalty_move', 'reward_EH',
                          'reward_EH_power', 'timesteps', 'EH_False', 'EHF_number_failures', 'EHF_number_successes',
                          'EHF_avg_path_length', 'EHF_avg_reward', 'EHF_avg_EH', 'EH_True', 'EHT_number_failures',
-                         'EHT_number_successes', 'EHT_avg_path_length', 'EHT_avg_reward', 'EHT_avg_EH'])
+                         'EHT_number_successes', 'EHT_avg_path_length', 'EHT_avg_reward', 'EHT_avg_EH',
+                         'Anomaly', 'EH_ratio', 'Path_ratio', 'Trade-off'])
 
         goals = test_goals
         if len(goals) == 1:
@@ -120,6 +122,7 @@ def run_parameter_test_gym_env(test_goals, num_start_positions, csv_file_name):
                                                               file_name=file_name,
                                                               num_start_positions=num_start_positions)
                                     print('-----------------------------------------------------------------\n')
+                                    ratio_results = generate_ratio_results(results_no_EH=results_no_EH, results_EH=results_EH)
 
                                     writer.writerow([
                                         str(reward_param['reward_done']),
@@ -140,14 +143,18 @@ def run_parameter_test_gym_env(test_goals, num_start_positions, csv_file_name):
                                         str(results_EH['number_successes']),
                                         str(results_EH['avg_path_length']),
                                         str(results_EH['avg_reward']),
-                                        str(results_EH['avg_EH'])
+                                        str(results_EH['avg_EH']),
+                                        str(ratio_results['Anomaly']),
+                                        str(ratio_results['EH_ratio']),
+                                        str(ratio_results['Path_ratio']),
+                                        str(ratio_results['Trade_off'])
                                     ])
 
 
-#run_parameter_test_gym_env(test_goals1, 10, 'param_test_1robot_10start_d.csv')
+run_parameter_test_gym_env(test_goals1, 10, 'new_param_test_1robot_10start.csv')
 #run_parameter_test_gym_env(test_goals1, 20, 'param_test_1robot_20start_d.csv')
 #run_parameter_test_gym_env(test_goals1, 50, 'param_test_1robot_50start_d.csv')
-#run_parameter_test_gym_env(test_goals2, 10, 'param_test_2robot_10start.csv')
+run_parameter_test_gym_env(test_goals2, 10, 'new_param_test_2robot_10start.csv')
 #run_parameter_test_gym_env(test_goals2, 20, 'param_test_2robot_20start.csv')
 #run_parameter_test_gym_env(test_goals2, 50, 'param_test_2robot_50start.csv')
 

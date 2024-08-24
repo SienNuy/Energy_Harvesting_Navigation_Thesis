@@ -47,7 +47,6 @@
                             <th>Number of Failures</th>
                             <th>Number of Successes</th>
                             <th>Average Path Length</th>
-                            <th>Average Reward</th>
                             <th>Average EH</th>
                             <th style="border-left: 5px solid black;">Anomaly</th>
                             <th>EH Ratio</th>
@@ -57,7 +56,7 @@
                     </thead>
                     <tbody>
                         {% set envs = ["results_my_no_EH", "results_my_EH", "results_gym_no_EH", "results_gym_EH"] %}
-                        {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_reward", "avg_EH"] %}
+                        {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_EH"] %}
                         {% set ratio_metrics = ["Anomaly", "EH_ratio", "Path_ratio", "Trade_off"] %}
 
                         {% for env in envs %}
@@ -82,9 +81,9 @@
                             {% if env == "results_my_no_EH" %}
                                 {% for ratio_metric in ratio_metrics %}
                                 {% if ratio_metric == "Anomaly" %}
-                                        <td rowspan="2" style="border-left: 5px solid black;">{{ models[std_model]["ratio_results_my"][ratio_metric] }}</td>
+                                        <td rowspan="2" style="border-left: 5px solid black;">{{ results["ratio_results_my"][ratio_metric] }}</td>
                                     {% else %}
-                                        <td rowspan="2">{{ models["ratio_results_my"][ratio_metric] }} %</td>
+                                        <td rowspan="2">{{ results["ratio_results_my"][ratio_metric] }} %</td>
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -92,9 +91,9 @@
                             {% if env == "results_gym_no_EH" %}
                                 {% for ratio_metric in ratio_metrics %}
                                     {% if ratio_metric == "Anomaly" %}
-                                        <td rowspan="2" style="border-left: 5px solid black;">{{ models[std_model]["ratio_results_gym"][ratio_metric] }}</td>
+                                        <td rowspan="2" style="border-left: 5px solid black;">{{ results["ratio_results_gym"][ratio_metric] }}</td>
                                     {% else %}
-                                        <td rowspan="2">{{ models["ratio_results_gym"][ratio_metric] }} %</td>
+                                        <td rowspan="2">{{ results["ratio_results_gym"][ratio_metric] }} %</td>
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}

@@ -7,6 +7,7 @@ import csv
 
 
 def run_all_lightsource_tests():
+    #light1_reward_param_model_1 = reward_param_standard_model_1
     results_1 = {'standard_model_1': test_1_lightsource_standard_1(reward_param=reward_param_standard_model_1,
                                                                 episodes=episodes_standard_model_1,
                                                                 max_timesteps=max_timesteps_standard_model_1,
@@ -316,19 +317,26 @@ def run_parameter_lightsource_test_gym_env(model, lightsources, test_reward_EH, 
                                               use_EH=True, reward_param=reward_param, reward_weight=reward_weight,
                                               range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
-            writer.writerow([
-                str(reward_EH),
-                str(reward_EH_power),
-                'False',
-                str(results_gym_no_EH['number_failures']),
-                str(results_gym_no_EH['number_successes']),
-                str(results_gym_no_EH['avg_path_length']),
-                str(results_gym_no_EH['avg_reward']),
-                str(results_gym_no_EH['avg_EH']),
-                'True',
-                str(results_gym_EH['number_failures']),
-                str(results_gym_EH['number_successes']),
-                str(results_gym_EH['avg_path_length']),
-                str(results_gym_EH['avg_reward']),
-                str(results_gym_EH['avg_EH'])
-            ])
+                ratio_results = generate_ratio_results(results_no_EH=test_gym_env, results_EH=test_gym_env)
+
+                writer.writerow([
+                    str(reward_EH),
+                    str(reward_EH_power),
+                    'False',
+                    str(results_gym_no_EH['number_failures']),
+                    str(results_gym_no_EH['number_successes']),
+                    str(results_gym_no_EH['avg_path_length']),
+                    str(results_gym_no_EH['avg_reward']),
+                    str(results_gym_no_EH['avg_EH']),
+                    'True',
+                    str(results_gym_EH['number_failures']),
+                    str(results_gym_EH['number_successes']),
+                    str(results_gym_EH['avg_path_length']),
+                    str(results_gym_EH['avg_reward']),
+                    str(results_gym_EH['avg_EH']),
+
+                    str(ratio_results['Anomaly']),
+                    str(ratio_results['EH_ratio']),
+                    str(ratio_results['Path_ratio']),
+                    str(ratio_results['Trade_off'])
+                ])

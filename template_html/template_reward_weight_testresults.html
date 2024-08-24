@@ -59,14 +59,13 @@
                 <th>Number of Failures</th>
                 <th>Number of Successes</th>
                 <th>Average Path Length</th>
-                <th>Average Reward</th>
                 <th>Average EH</th>
             </tr>
             </thead>
             <tbody>
             {% set std_models = ["standard_model_1", "standard_model_2"] %}
             {% set envs = ["results_my_EH", "results_gym_EH"] %}
-            {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_reward", "avg_EH"] %}
+            {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_EH"] %}
 
             {% for std_model in std_models %}
             {% if std_model == "standard_model_1" %}
@@ -81,25 +80,31 @@
 
                 {% for env in envs %}
 
+                    {% if env == "results_my_no_EH" %}
+                        <th rowspan="2"> Q-learning </th>
+                        <th>No EH</th>
 
-                {% if env == "results_my_EH"%}
-                    <tr>
-                    <th> Q-learning</th>
-                    <th>EH</th>
+                    {% elif env == "results_my_EH"%}
+                        <tr>
+                        <th>EH</th>
 
-                {% elif env == "results_gym_EH"%}
-                    <tr>
-                    <th> PPO </th>
-                    <th>EH</th>
+                    {% elif env == "results_gym_no_EH" %}
+                        <tr>
+                        <th rowspan="2"> PPO </th>
+                        <th>No EH</th>
 
-                {% endif %}
+                    {% elif env == "results_gym_EH"%}
+                        <tr>
+                        <th>EH</th>
 
-                {% for metric in metrics %}
+                    {% endif %}
 
-                <td>{{ models[std_model][env][metric] }}</td>
+                    {% for metric in metrics %}
 
-                {% endfor %}
-                </tr>
+                    <td>{{ models[std_model][env][metric] }}</td>
+
+                    {% endfor %}
+                    </tr>
 
                 {% endfor %}
 

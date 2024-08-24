@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Results Page</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 20px; /* Space between columns */
+            margin-bottom: 40px; /* Space between grid and next section */
+        }
+
+        .grid-item {
+            text-align: center;
+        }
+
+        .table-container {
+            width: 1500px; /* Full width of the grid item */
+            overflow-x: auto; /* Handle overflow */
+            margin: 0 auto; /* Center table content */
+        }
+
+        table {
+            width: 100%; /* Table takes full width of the container */
+            border-collapse: collapse;
+            margin-top: 10px; /* Space between subtitle and table */
+            font-size: 20px; /* Set font size for the entire table */
+
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center">Reward Weight Tests</h1>
+
+
+<div class="grid-item">
+    <h2>40% Move - 60% Energy Harvest</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average EH</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+
+
+                
+                    <tr>
+                    <th> Q-learning</th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.6</td>
+
+                
+
+                <td>10.03</td>
+
+                
+                </tr>
+
+                
+
+
+                
+                    <tr>
+                    <th> PPO </th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>0.0</td>
+
+                
+
+                <td>0.0</td>
+
+                
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+
+
+                
+                    <tr>
+                    <th> Q-learning</th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.9</td>
+
+                
+
+                <td>4.83</td>
+
+                
+                </tr>
+
+                
+
+
+                
+                    <tr>
+                    <th> PPO </th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>11.6</td>
+
+                
+
+                <td>3.7</td>
+
+                
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>60% Move - 40% Energy Harvest</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average EH</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+
+
+                
+                    <tr>
+                    <th> Q-learning</th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.6</td>
+
+                
+
+                <td>9.49</td>
+
+                
+                </tr>
+
+                
+
+
+                
+                    <tr>
+                    <th> PPO </th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.8</td>
+
+                
+
+                <td>8.2</td>
+
+                
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+
+
+                
+                    <tr>
+                    <th> Q-learning</th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.9</td>
+
+                
+
+                <td>3.96</td>
+
+                
+                </tr>
+
+                
+
+
+                
+                    <tr>
+                    <th> PPO </th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>10.85</td>
+
+                
+
+                <td>8.05</td>
+
+                
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>80% Move - 20% Energy Harvest</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average EH</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+
+
+                
+                    <tr>
+                    <th> Q-learning</th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.8</td>
+
+                
+
+                <td>7.73</td>
+
+                
+                </tr>
+
+                
+
+
+                
+                    <tr>
+                    <th> PPO </th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.4</td>
+
+                
+
+                <td>3.65</td>
+
+                
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+
+
+                
+                    <tr>
+                    <th> Q-learning</th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.9</td>
+
+                
+
+                <td>3.68</td>
+
+                
+                </tr>
+
+                
+
+
+                
+                    <tr>
+                    <th> PPO </th>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>13.8</td>
+
+                
+
+                <td>9.83</td>
+
+                
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+</html>

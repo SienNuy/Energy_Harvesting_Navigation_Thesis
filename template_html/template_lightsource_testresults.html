@@ -17,7 +17,7 @@
         }
 
         .table-container {
-            width: 1500px; /* Full width of the grid item */
+            width: 1700px; /* Full width of the grid item */
             overflow-x: auto; /* Handle overflow */
             margin: 0 auto; /* Center table content */
         }
@@ -59,7 +59,6 @@
                 <th>Number of Failures</th>
                 <th>Number of Successes</th>
                 <th>Average Path Length</th>
-                <th>Average Reward</th>
                 <th>Average EH</th>
                 <th style="border-left: 5px solid black;">Anomaly</th>
                 <th>EH Ratio</th>
@@ -70,7 +69,7 @@
             <tbody>
             {% set std_models = ["standard_model_1", "standard_model_2"] %}
             {% set envs = ["results_my_no_EH", "results_my_EH", "results_gym_no_EH", "results_gym_EH"] %}
-            {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_reward", "avg_EH"] %}
+            {% set metrics = ["number_failures", "number_successes", "avg_path_length", "avg_EH"] %}
             {% set ratio_metrics = ["Anomaly", "EH_ratio", "Path_ratio", "Trade_off"] %}
 
             {% for std_model in std_models %}
@@ -122,7 +121,7 @@
 
                 {% if env == "results_gym_no_EH" %}
                     {% for ratio_metric in ratio_metrics %}
-{                       % if ratio_metric == "Anomaly" %}
+                        {% if ratio_metric == "Anomaly" %}
                             <td rowspan="2" style="border-left: 5px solid black;">{{ models[std_model]["ratio_results_gym"][ratio_metric] }}</td>
                         {% else %}
                             <td rowspan="2">{{ models[std_model]["ratio_results_gym"][ratio_metric] }} %</td>

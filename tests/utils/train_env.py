@@ -3,7 +3,7 @@ import os
 
 
 def generate_file_name(gridsize, goals, obstacles,lightsources, clustered=False, reward_weight=None, range_EH=None):
-    filename = ('models/' + (str(gridsize)) + 'x' + str(gridsize) + '_' + str(len(goals))
+    filename = ((str(gridsize)) + 'x' + str(gridsize) + '_' + str(len(goals))
             + '_robots_' + str(len(obstacles)) + '_obs_' +
             str(len(lightsources)) + '_lights')
 
