@@ -96,15 +96,25 @@ def generate_ratio_results(results_no_EH, results_EH):
     anomaly = False
     if results_EH["avg_EH"] <= results_no_EH["avg_EH"]:
         anomaly = True
-    EH_ratio = results_EH["avg_EH"] / results_no_EH["avg_EH"] * 100
-    path_ratio = results_EH["avg_path_length"] / results_no_EH["avg_path_length"] * 100
 
-    trade_off = EH_ratio/path_ratio * 100
+    EH_ratio = None
+    path_ratio = None
+    if results_no_EH["avg_EH"] != 0:
+        EH_ratio = results_EH["avg_EH"] / results_no_EH["avg_EH"] * 100
+    if results_no_EH["avg_path_length"] != 0:
+        path_ratio = results_EH["avg_path_length"] / results_no_EH["avg_path_length"] * 100
+
+    trade_off = None
+    if path_ratio != 0 and EH_ratio is not None and path_ratio is not None:
+        trade_off = EH_ratio/path_ratio * 100
 
     # Rounding the floating points to only have 2 decimals
-    EH_ratio = round(EH_ratio, 2)
-    path_ratio = round(path_ratio, 2)
-    trade_off = round(trade_off, 2)
+    if EH_ratio is not None:
+        EH_ratio = round(EH_ratio, 2)
+    if path_ratio is not None:
+        path_ratio = round(path_ratio, 2)
+    if trade_off is not None:
+        trade_off = round(trade_off, 2)
 
     return {'Anomaly': anomaly,
             'EH_ratio': EH_ratio,

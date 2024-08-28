@@ -180,9 +180,11 @@ def run_parameter_gridsize_tests():
     test_total_timesteps_grid5_m1 = [10000, 20000, 50000]
     test_episodes_grid5_m1 = [500, 1000, 2000]
     test_max_timesteps_grid5_m1 = [50, 100]
+
     test_total_timesteps_grid5_m2 = [20000, 50000]
     test_episodes_grid5_m2 = [1000, 2000, 3000]
     test_max_timesteps_grid5_m2 = [100, 200]
+
     # Standard model 1 - Gridsize 5
     run_parameter_gridsize_test_gym_env(1, 5, test_total_timesteps_grid5_m1)
     run_parameter_gridsize_test_my_env(1, 5, test_episodes_grid5_m1, test_max_timesteps_grid5_m1)
@@ -193,9 +195,11 @@ def run_parameter_gridsize_tests():
     test_total_timesteps_grid20_m1 = [20000, 50000, 100000]
     test_episodes_grid20_m1 = [1000, 5000, 10000]
     test_max_timesteps_grid20_m1 = [100, 200]
+
     test_total_timesteps_grid20_m2 = [50000, 100000]
     test_episodes_grid20_m2 = [5000, 10000, 20000]
     test_max_timesteps_grid20_m2 = [200, 400]
+
     # Standard model 1 - Gridsize 5
     run_parameter_gridsize_test_gym_env(1, 20, test_total_timesteps_grid20_m1)
     run_parameter_gridsize_test_my_env(1, 20, test_episodes_grid20_m1, test_max_timesteps_grid20_m1)

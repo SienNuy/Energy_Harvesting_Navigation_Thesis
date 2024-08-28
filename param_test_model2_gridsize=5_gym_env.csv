@@ -1,3 +1,0 @@
-Total Timesteps,EH_False,EHF_number_failures,EHF_number_successes,EHF_avg_path_length,EHF_avg_reward,EHF_avg_EH,EH_True,EHT_number_failures,EHT_number_successes,EHT_avg_path_length,EHT_avg_reward,EHT_avg_EH
-20000,False,1,9,11.5,176.4,3.41,True,0,10,9.55,98.89,2.23,True,65.4,83.04,78.75
-50000,False,0,10,9.7,197.52,2.75,True,0,10,6.55,100.09,4.61,False,167.64,67.53,248.26

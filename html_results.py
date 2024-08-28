@@ -163,9 +163,9 @@ def write_path_to_html2(output_file, nr_of_robots, path_data, obstacles, lightso
 
             f.write('<table>\n')
             f.write('<tbody>\n')
-            for x in range(path_info["gridsize"]):
+            for y in range(path_info["gridsize"]):
                 f.write('<tr>\n')
-                for y in range(path_info["gridsize"]):
+                for x in range(path_info["gridsize"]):
                     in_path1 = False
                     in_path2 = False
                     time_step1 = None

@@ -317,7 +317,7 @@ def run_parameter_lightsource_test_gym_env(model, lightsources, test_reward_EH, 
                                               use_EH=True, reward_param=reward_param, reward_weight=reward_weight,
                                               range_EH=range_EH, timesteps=total_timesteps, file_name=file_name)
 
-                ratio_results = generate_ratio_results(results_no_EH=test_gym_env, results_EH=test_gym_env)
+                ratio_results = generate_ratio_results(results_no_EH=results_gym_no_EH, results_EH=results_gym_EH)
 
                 writer.writerow([
                     str(reward_EH),

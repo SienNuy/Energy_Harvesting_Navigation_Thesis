@@ -55,7 +55,7 @@
         <table>
             <thead>
             <tr>
-                <th colspan="3"></th>
+                <th colspan="2"></th>
                 <th>Number of Failures</th>
                 <th>Number of Successes</th>
                 <th>Average Path Length</th>
@@ -70,32 +70,23 @@
             {% for std_model in std_models %}
             {% if std_model == "standard_model_1" %}
                 <tr>
-                    <th rowspan="4"> 1 Robot</th>
+                    <th rowspan="2"> 1 Robot</th>
 
             {% elif std_model == "standard_model_2" %}
                 <tr>
-                    <th rowspan="4"> 2 Robots</th>
+                    <th rowspan="2"> 2 Robots</th>
 
             {% endif %}
 
                 {% for env in envs %}
 
-                    {% if env == "results_my_no_EH" %}
-                        <th rowspan="2"> Q-learning </th>
-                        <th>No EH</th>
+                    {% if env == "results_my_EH"%}
+                        <th> Q-learning </th>
 
-                    {% elif env == "results_my_EH"%}
-                        <tr>
-                        <th>EH</th>
-
-                    {% elif env == "results_gym_no_EH" %}
-                        <tr>
-                        <th rowspan="2"> PPO </th>
-                        <th>No EH</th>
 
                     {% elif env == "results_gym_EH"%}
-                        <tr>
-                        <th>EH</th>
+                        <th> PPO </th>
+
 
                     {% endif %}
 

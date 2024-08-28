@@ -1,0 +1,7 @@
+Episodes,Max Timesteps,EH_False,EHF_number_failures,EHF_number_successes,EHF_avg_path_length,EHF_avg_reward,EHF_avg_EH,EH_True,EHT_number_failures,EHT_number_successes,EHT_avg_path_length,EHT_avg_reward,EHT_avg_EH
+500,50,False,0,10,3.3,99.54,2.7,True,0,10,3.9,51.31,3.2,False,118.52,118.18,100.28
+500,100,False,0,10,2.9,99.62,2.6,True,0,10,2.9,51.16,2.7,False,103.85,100.0,103.85
+1000,50,False,0,10,2.9,99.62,2.6,True,0,10,3.3,51.32,3.1,False,119.23,113.79,104.78
+1000,100,False,0,10,3.1,99.58,2.7,True,0,10,2.9,51.16,2.7,True,100.0,93.55,106.9
+2000,50,False,0,10,2.9,99.62,2.4,True,0,10,2.9,51.16,2.7,False,112.5,100.0,112.5
+2000,100,False,0,10,3.1,99.58,2.4,True,0,10,3.1,51.24,2.9,False,120.83,100.0,120.83

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Results Page</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 20px; /* Space between columns */
+            margin-bottom: 40px; /* Space between grid and next section */
+        }
+
+        .grid-item {
+            text-align: center;
+        }
+
+        .table-container {
+            width: 1700px; /* Full width of the grid item */
+            overflow-x: auto; /* Handle overflow */
+            margin: 0 auto; /* Center table content */
+        }
+
+        table {
+            width: 100%; /* Table takes full width of the container */
+            border-collapse: collapse;
+            margin-top: 10px; /* Space between subtitle and table */
+            font-size: 20px; /* Set font size for the entire table */
+
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center">Lightsource Tests</h1>
+
+
+<div class="grid-item">
+    <h2>1 lightsource</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average EH</th>
+                <th style="border-left: 5px solid black;">Anomaly</th>
+                <th>EH Ratio</th>
+                <th>Path Ratio</th>
+                <th>Trade-off (EH / Path Length)</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.0</td>
+
+                
+
+
+                
+
+                <td>4.96</td>
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+                    
+                        
+                            <td rowspan="2">298.99 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">120.0 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">249.16 %</td>
+                        
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.4</td>
+
+                
+
+
+                
+
+                <td>14.83</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+
+                
+
+                <td>5.94</td>
+
+                
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">177.78 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">111.76 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">159.06 %</td>
+                        
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.6</td>
+
+                
+
+
+                
+
+                <td>10.56</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+
+                
+
+                <td>11.48</td>
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+                    
+                        
+                            <td rowspan="2">295.56 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">103.03 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">286.86 %</td>
+                        
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+
+                
+
+                <td>33.93</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>13.4</td>
+
+                
+
+
+                
+
+                <td>35.55</td>
+
+                
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">115.02 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">115.67 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">99.44 %</td>
+                        
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>15.5</td>
+
+                
+
+
+                
+
+                <td>40.89</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>7 lightsources (sparse)</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average EH</th>
+                <th style="border-left: 5px solid black;">Anomaly</th>
+                <th>EH Ratio</th>
+                <th>Path Ratio</th>
+                <th>Trade-off (EH / Path Length)</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.4</td>
+
+                
+
+
+                
+
+                <td>22.43</td>
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+                    
+                        
+                            <td rowspan="2">132.23 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">100.0 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">132.23 %</td>
+                        
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.4</td>
+
+                
+
+
+                
+
+                <td>29.66</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.1</td>
+
+                
+
+
+                
+
+                <td>20.67</td>
+
+                
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">217.42 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">95.77 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">227.01 %</td>
+                        
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>3</td>
+
+                
+
+                <td>7</td>
+
+                
+
+                <td>6.8</td>
+
+                
+
+
+                
+
+                <td>44.94</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+
+                
+
+                <td>57.1</td>
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+                    
+                        
+                            <td rowspan="2">199.18 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">100.0 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">199.18 %</td>
+                        
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+
+                
+
+                <td>113.73</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>17.2</td>
+
+                
+
+
+                
+
+                <td>618.28</td>
+
+                
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">True</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">34.76 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">87.21 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">39.86 %</td>
+                        
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>15.0</td>
+
+                
+
+
+                
+
+                <td>214.92</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div class="grid-item">
+    <h2>7 lightsources (clustered)</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3"></th>
+                <th>Number of Failures</th>
+                <th>Number of Successes</th>
+                <th>Average Path Length</th>
+                <th>Average EH</th>
+                <th style="border-left: 5px solid black;">Anomaly</th>
+                <th>EH Ratio</th>
+                <th>Path Ratio</th>
+                <th>Trade-off (EH / Path Length)</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+            
+            
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 1 Robot</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>7.6</td>
+
+                
+
+
+                
+
+                <td>52.47</td>
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+                    
+                        
+                            <td rowspan="2">126.93 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">105.26 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">120.58 %</td>
+                        
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>8.0</td>
+
+                
+
+
+                
+
+                <td>66.6</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.9</td>
+
+                
+
+
+                
+
+                <td>40.54</td>
+
+                
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">True</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">0.0 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">0.0 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">nan %</td>
+                        
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>0.0</td>
+
+                
+
+
+                
+
+                <td>0.0</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            
+                <tr>
+                    <th rowspan="4"> 2 Robots</th>
+
+            
+
+                
+                
+                    <th rowspan="2"> Q-learning</th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+
+                
+
+                <td>58.24</td>
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+                    
+                        
+                            <td rowspan="2">359.25 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">100.0 %</td>
+                        
+                    
+                        
+                            <td rowspan="2">359.25 %</td>
+                        
+                    
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>6.6</td>
+
+                
+
+
+                
+
+                <td>209.23</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th rowspan="2"> PPO </th>
+                    <th>No EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>17.0</td>
+
+                
+
+
+                
+
+                <td>361.51</td>
+
+                
+
+                
+
+                
+                    
+                        
+                            <td rowspan="2" style="border-left: 5px solid black;">False</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">100.07 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">104.12 %</td>
+                        
+
+                    
+                        
+                            <td rowspan="2">96.11 %</td>
+                        
+
+                    
+                
+
+                </tr>
+
+                
+                
+                    <tr>
+                    <th>EH</th>
+
+                
+
+                
+
+                <td>0</td>
+
+                
+
+                <td>10</td>
+
+                
+
+                <td>17.7</td>
+
+                
+
+
+                
+
+                <td>361.77</td>
+
+                
+
+                
+
+                
+
+                </tr>
+
+                
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+</html>

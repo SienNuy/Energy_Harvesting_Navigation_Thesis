@@ -174,7 +174,7 @@ def navigate_gym_env(gym_env, model, num_robots, gridsize, num_start_positions):
         for i in range(50):
             actions, _states = model.predict(obs, deterministic=False)
             obs, rewards, done, info = gym_env.step(actions)
-            #gym_env.render()
+            gym_env.render()
             #time.sleep(0.2)
 
             if num_robots == 2:

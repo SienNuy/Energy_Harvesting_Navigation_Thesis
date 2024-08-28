@@ -1,3 +1,5 @@
 reward_EH,reward_EH_power,EH_False,EHF_number_failures,EHF_number_successes,EHF_avg_path_length,EHF_avg_reward,EHF_avg_EH,EH_True,EHT_number_failures,EHT_number_successes,EHT_avg_path_length,EHT_avg_reward,EHT_avg_EH
-2,2,False,0,10,16.9,971.38,34.51,True,0,10,14.3,491.84,24.19
-3,2,False,0,10,16.3,978.84,30.67,True,0,10,14.2,494.86,32.76
+2,1,False,1,9,13.95,177.93,2.55,True,0,10,12.8,99.6,2.46,True,96.47,91.76,105.14
+2,2,False,0,10,12.95,198.58,1.57,True,0,10,11.55,99.66,1.31,True,83.44,89.19,93.55
+3,1,False,0,10,13.25,198.5,2.87,True,0,10,13.6,99.3,2.25,True,78.4,102.64,76.38
+3,2,False,0,10,13.5,197.89,1.61,True,0,10,12.3,99.6,1.24,True,77.02,91.11,84.53

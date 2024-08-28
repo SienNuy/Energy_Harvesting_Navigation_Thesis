@@ -31,21 +31,21 @@ max_timesteps_standard_model_2 = 200
 #########################################################################################################
 # TESTS
 # Grid size
-total_timesteps_gridsize_5_model_1 = 10000
-episodes_gridsize_5_model_1 = 500
+total_timesteps_gridsize_5_model_1 = 20000
+episodes_gridsize_5_model_1 = 2000
 max_timesteps_gridsize_5_model_1 = 100
 
 total_timesteps_gridsize_5_model_2 = 50000
-episodes_gridsize_5_model_2 = 1000
-max_timesteps_gridsize_5_model_2 = 200
+episodes_gridsize_5_model_2 = 3000
+max_timesteps_gridsize_5_model_2 = 100
 
-total_timesteps_gridsize_20_model_1 = 100000
+total_timesteps_gridsize_20_model_1 = 20000
 episodes_gridsize_20_model_1 = 1000
-max_timesteps_gridsize_20_model_1 = 200
+max_timesteps_gridsize_20_model_1 = 100
 
-total_timesteps_gridsize_20_model_2 = 200000
+total_timesteps_gridsize_20_model_2 = 100000
 episodes_gridsize_20_model_2 = 5000
-max_timesteps_gridsize_20_model_2 = 400
+max_timesteps_gridsize_20_model_2 = 200
 
 # Lightsources
 reward_param_lights_1_model_1 = reward_param_standard_model_1
